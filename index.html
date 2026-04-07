@@ -641,6 +641,8 @@
   .cat-趣味 { background:rgba(179,136,255,.1); color:#b388ff; border:1px solid rgba(179,136,255,.25); }
   .cat-福利 { background:rgba(0,229,255,.1); color:#00e5ff; border:1px solid rgba(0,229,255,.25); }
   .cat-武器 { background:rgba(255,214,0,.1); color:#ffd600; border:1px solid rgba(255,214,0,.25); }
+  .cat-合作 { background:rgba(0,230,180,.1); color:#00e6b4; border:1px solid rgba(0,230,180,.25); }
+  .cat-拆家 { background:rgba(255,82,82,.12); color:#ff5252; border:1px solid rgba(255,82,82,.3); }
 
   /* 分类看板区 */
   .cat-overview {
@@ -754,6 +756,7 @@
         <option value="">全部</option>
         <option>对抗</option><option>生存</option><option>建造</option>
         <option>探索</option><option>趣味</option><option>福利</option><option>武器</option>
+        <option>合作</option><option>拆家</option>
       </select>
     </div>
     <div class="filter-group">
@@ -834,8 +837,8 @@
         <option value="">全部</option>
         <option>对抗</option><option>生存</option><option>建造</option>
         <option>探索</option><option>趣味</option><option>福利</option><option>武器</option>
+        <option>合作</option><option>拆家</option>
       </select>
-      <label>最少投放</label>
       <select id="minCount">
         <option value="1">≥1次</option><option value="3">≥3次</option>
         <option value="5">≥5次</option><option value="10">≥10次</option>
@@ -1199,6 +1202,8 @@ const CAT_META = {
   '趣味': { icon:'🎭', color:'#b388ff', bg:'rgba(179,136,255,.1)', border:'rgba(179,136,255,.25)' },
   '福利': { icon:'🎁', color:'#00e5ff', bg:'rgba(0,229,255,.1)', border:'rgba(0,229,255,.25)' },
   '武器': { icon:'🔫', color:'#ffd600', bg:'rgba(255,214,0,.1)', border:'rgba(255,214,0,.25)' },
+  '合作': { icon:'🤝', color:'#00e6b4', bg:'rgba(0,230,180,.1)', border:'rgba(0,230,180,.25)' },
+  '拆家': { icon:'💥', color:'#ff5252', bg:'rgba(255,82,82,.12)', border:'rgba(255,82,82,.3)' },
 };
 
 function renderCatCharts(d) {
@@ -1214,7 +1219,7 @@ function renderCatCharts(d) {
   });
 
   // 小卡片
-  const catOrder = ['对抗','生存','建造','探索','趣味','福利','武器'];
+  const catOrder = ['对抗','生存','建造','探索','趣味','福利','武器','合作','拆家'];
   const selectedCat = document.getElementById('catFilter').value;
   document.getElementById('catMiniCards').innerHTML = catOrder.map(cat => {
     const s = catStats[cat];
@@ -1578,6 +1583,8 @@ const CAT_EDIT_LIST = [
   { name:'趣味', icon:'🎭' },
   { name:'福利', icon:'🎁' },
   { name:'武器', icon:'🔫' },
+  { name:'合作', icon:'🤝' },
+  { name:'拆家', icon:'💥' },
 ];
 
 function openCatEdit(idx) {
@@ -1838,7 +1845,7 @@ function renderWeekly() {
   // 分类占比
   const catExp={};
   weekData.forEach(d=>{const cat=MAT_MAP[d.img]||'未分类';catExp[cat]=(catExp[cat]||0)+d.exposure;});
-  const catColors={'对抗':'#E05252','生存':'#7EC98A','建造':'#D4882A','探索':'#6AAFCF','趣味':'#b388ff','福利':'#FF7132','武器':'#C43F24','未分类':'#4a3f3a'};
+  const catColors={'对抗':'#E05252','生存':'#7EC98A','建造':'#D4882A','探索':'#6AAFCF','趣味':'#b388ff','福利':'#FF7132','武器':'#C43F24','合作':'#00e6b4','拆家':'#ff5252','未分类':'#4a3f3a'};
   const catPie=Object.entries(catExp).map(([k,v])=>({name:k,value:v,itemStyle:{color:catColors[k]||'#888'}}));
   const ccEl=document.getElementById('weekCatChart');
   if(!weeklyCharts.cat) weeklyCharts.cat=echarts.init(ccEl);
