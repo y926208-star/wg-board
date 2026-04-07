@@ -725,6 +725,7 @@
     <div class="tab-list">
       <button class="tab-btn active" onclick="switchTab('board')">📊 投放数据看板</button>
       <button class="tab-btn" onclick="switchTab('library')">🏆 优质素材沉淀库</button>
+      <button class="tab-btn" onclick="switchTab('weekly')">📅 周度复盘</button>
     </div>
     <div class="nav-right">共 <strong id="totalRowsNav">686</strong> 条记录</div>
   </div>
@@ -850,6 +851,87 @@
   <div id="listView" class="list-container" style="display:none;"></div>
 </div>
 
+<!-- ===== 页面3：周度复盘 ===== -->
+<div id="page-weekly" class="page">
+  <div class="filter-bar" style="gap:12px;">
+    <div class="filter-group">
+      <label>选择周次</label>
+      <select id="weekSelect" style="min-width:200px;"></select>
+    </div>
+    <div class="filter-group">
+      <label>资源位置</label>
+      <select id="weekPosFilter">
+        <option value="">全部</option>
+        <option>商店轮播-全量</option><option>商店轮播-定投200w</option>
+        <option>首帧轮播-全量</option><option>首帧轮播-定投100w</option>
+      </select>
+    </div>
+    <button class="filter-btn" onclick="renderWeekly()">查看本周</button>
+  </div>
+
+  <!-- 周度KPI -->
+  <div class="kpi-row" id="weekKpiRow">
+    <div class="kpi-card"><div class="kpi-label">本周总曝光</div><div class="kpi-value" id="wk-exp">--</div><div class="kpi-sub" id="wk-exp-sub">--</div></div>
+    <div class="kpi-card"><div class="kpi-label">本周总点击</div><div class="kpi-value" id="wk-clk">--</div><div class="kpi-sub" id="wk-clk-sub">--</div></div>
+    <div class="kpi-card"><div class="kpi-label">平均CTR</div><div class="kpi-value" id="wk-ctr">--</div><div class="kpi-sub" id="wk-ctr-sub">--</div></div>
+    <div class="kpi-card"><div class="kpi-label">投放记录数</div><div class="kpi-value" id="wk-count">--</div><div class="kpi-sub" id="wk-count-sub">--</div></div>
+  </div>
+
+  <!-- 周度图表 -->
+  <div class="charts-row" style="padding:16px 32px 0;">
+    <div class="chart-card">
+      <div class="chart-title">本周每日曝光 & CTR 趋势</div>
+      <div id="weekDailyChart" style="height:240px;"></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">本周分类占比</div>
+      <div id="weekCatChart" style="height:240px;"></div>
+    </div>
+  </div>
+
+  <!-- 周环比 -->
+  <div class="charts-row2" style="padding:12px 32px 0;">
+    <div class="chart-card">
+      <div class="chart-title">近8周曝光趋势</div>
+      <div id="weekTrendChart" style="height:200px;"></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">近8周平均CTR趋势</div>
+      <div id="weekCtrTrendChart" style="height:200px;"></div>
+    </div>
+  </div>
+
+  <!-- 周度复盘总结 -->
+  <div class="table-section" style="padding-top:16px;">
+    <div class="table-card">
+      <div class="table-header">
+        <div class="table-title">本周复盘总结</div>
+        <div class="table-info" id="weekSummaryRange">--</div>
+      </div>
+      <div id="weeklySummary" style="padding:20px 24px;line-height:2;font-size:13px;color:var(--text);"></div>
+    </div>
+  </div>
+
+  <!-- 本周素材明细 -->
+  <div class="table-section" style="padding-top:0;">
+    <div class="table-card">
+      <div class="table-header">
+        <div class="table-title">本周投放素材明细</div>
+        <div class="table-info" id="weekDetailCount">--</div>
+      </div>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead><tr>
+            <th>日期</th><th>素材</th><th>游戏方向</th><th>资源位置</th>
+            <th>素材形式</th><th>曝光UV</th><th>点击UV</th><th>CTR</th>
+          </tr></thead>
+          <tbody id="weekTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ===== 模态框 ===== -->
 <div class="modal-overlay" id="modal" onclick="closeModal(event)">
   <div class="modal" id="modalBox">
@@ -916,12 +998,15 @@ function posBadgeHTML(pos) {
 // =========================================================
 function switchTab(tab) {
   document.querySelectorAll('.tab-btn').forEach((b,i) => {
-    b.classList.toggle('active', (i===0&&tab==='board')||(i===1&&tab==='library'));
+    b.classList.toggle('active',
+      (i===0&&tab==='board')||(i===1&&tab==='library')||(i===2&&tab==='weekly'));
   });
   document.getElementById('page-board').classList.toggle('active', tab==='board');
   document.getElementById('page-library').classList.toggle('active', tab==='library');
+  document.getElementById('page-weekly').classList.toggle('active', tab==='weekly');
   if (tab === 'board' && !boardInited) initBoard();
   if (tab === 'library' && !libInited) initLibrary();
+  if (tab === 'weekly' && !weeklyInited) initWeekly();
 }
 
 // =========================================================
@@ -1334,7 +1419,7 @@ function renderGrid() {
           <div class="ctr-bar-wrap"><div class="ctr-track-sm"><div class="ctr-fill-sm" style="width:${ctrPct}%;background:${color};"></div></div></div>
           <div class="card-tags">${posTags}</div>
           ${d.category?`<div style="margin-top:5px;"><span class="cat-badge cat-${d.category}">${(CAT_META[d.category]||{}).icon||''} ${d.category}</span></div>`:''}
-          <div class="card-invest">投放 <strong>${d.invest_count}</strong> 次 · ${(d.dates&&d.dates.length)?d.dates.map(dt=>dt.slice(5)).join('、'):'--'}</div>
+          <div class="card-invest">投放 <strong>${d.invest_count}</strong> 次</div>
         </div>
       </div>`;
     }).join('');
@@ -1626,6 +1711,255 @@ function openModal(idx) {
 function closeModal(e) { if(e.target===document.getElementById('modal')) closeModalDirect(); }
 function closeModalDirect() { document.getElementById('modal').classList.remove('show'); }
 document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModalDirect(); });
+
+// =========================================================
+// 周度复盘
+// =========================================================
+let weeklyInited = false;
+let WEEKLY_BOARD_DATA = [];
+let weeklyCharts = {};
+
+function getWeekRange(dateStr) {
+  const d = new Date(dateStr + 'T00:00:00');
+  const day = d.getDay() || 7;
+  const mon = new Date(d);
+  mon.setDate(d.getDate() - day + 1);
+  const sun = new Date(mon);
+  sun.setDate(mon.getDate() + 6);
+  return [mon.toISOString().slice(0,10), sun.toISOString().slice(0,10)];
+}
+
+function fmt2(n) {
+  if (n >= 1e8) return (n/1e8).toFixed(1)+'亿';
+  if (n >= 1e4) return (n/1e4).toFixed(1)+'万';
+  return n.toLocaleString();
+}
+
+function initWeekly() {
+  weeklyInited = true;
+  const bd = BOARD_DATA.length ? BOARD_DATA : [];
+  if (bd.length) {
+    setupWeeklyPage(bd);
+  } else {
+    fetch('board_data.json').then(r=>r.json()).then(data => {
+      WEEKLY_BOARD_DATA = data;
+      setupWeeklyPage(data);
+    });
+  }
+}
+
+function setupWeeklyPage(data) {
+  if (!data || !data.length) return;
+  const weekSet = new Set();
+  data.forEach(d => { const [mon] = getWeekRange(d.date); weekSet.add(mon); });
+  const weeks = [...weekSet].sort().reverse();
+  const sel = document.getElementById('weekSelect');
+  sel.innerHTML = weeks.map((wMon, i) => {
+    const [, wSun] = getWeekRange(wMon);
+    return `<option value="${wMon}">第${weeks.length - i}周 (${wMon} ~ ${wSun})</option>`;
+  }).join('');
+  renderWeekly();
+}
+
+function renderWeekly() {
+  const bd = BOARD_DATA.length ? BOARD_DATA : WEEKLY_BOARD_DATA;
+  if (!bd.length) return;
+  const selWeek = document.getElementById('weekSelect').value;
+  const posF = document.getElementById('weekPosFilter').value;
+  if (!selWeek) return;
+  const [wMon, wSun] = getWeekRange(selWeek);
+  const weekData = bd.filter(d => d.date >= wMon && d.date <= wSun && (!posF || d.position === posF));
+  const totalExp = weekData.reduce((s,r)=>s+r.exposure,0);
+  const totalClk = weekData.reduce((s,r)=>s+r.clicks,0);
+  const avgCtr = weekData.length ? (weekData.reduce((s,r)=>s+r.ctr,0)/weekData.length).toFixed(3) : '0.000';
+  const prevMon = new Date(wMon); prevMon.setDate(prevMon.getDate()-7);
+  const prevSun = new Date(wSun); prevSun.setDate(prevSun.getDate()-7);
+  const prevMonStr = prevMon.toISOString().slice(0,10);
+  const prevSunStr = prevSun.toISOString().slice(0,10);
+  const prevData = bd.filter(d => d.date>=prevMonStr && d.date<=prevSunStr && (!posF||d.position===posF));
+  const prevExp = prevData.reduce((s,r)=>s+r.exposure,0);
+  const prevCtr = prevData.length ? prevData.reduce((s,r)=>s+r.ctr,0)/prevData.length : 0;
+
+  function chgHtml(cur,prev) {
+    if (!prev) return '';
+    const p = ((cur-prev)/prev*100).toFixed(1);
+    const c = parseFloat(p)>=0?'var(--green)':'var(--red)';
+    return `<span style="color:${c};font-size:11px;"> ${parseFloat(p)>=0?'↑':'↓'}${Math.abs(p)}%</span>`;
+  }
+
+  document.getElementById('wk-exp').textContent = fmt2(totalExp);
+  document.getElementById('wk-exp-sub').innerHTML = `较上周 ${fmt2(prevExp)}${chgHtml(totalExp,prevExp)}`;
+  document.getElementById('wk-clk').textContent = fmt2(totalClk);
+  document.getElementById('wk-clk-sub').textContent = `总体CTR ${(totalExp?totalClk/totalExp*100:0).toFixed(3)}%`;
+  document.getElementById('wk-ctr').textContent = avgCtr + '%';
+  document.getElementById('wk-ctr-sub').innerHTML = `较上周 ${prevCtr.toFixed(3)}%${chgHtml(parseFloat(avgCtr),prevCtr)}`;
+  document.getElementById('wk-count').textContent = weekData.length;
+  document.getElementById('wk-count-sub').textContent = `${wMon} ~ ${wSun}`;
+  document.getElementById('weekSummaryRange').textContent = `${wMon} ~ ${wSun}`;
+
+  // 每日趋势图
+  const byDate = {};
+  weekData.forEach(d => {
+    if (!byDate[d.date]) byDate[d.date] = {exp:0,clk:0};
+    byDate[d.date].exp += d.exposure;
+    byDate[d.date].clk += d.clicks;
+  });
+  const days=[];
+  for(let d=new Date(wMon+' 00:00:00'); d<=new Date(wSun+' 00:00:00'); d.setDate(d.getDate()+1))
+    days.push(d.toISOString().slice(0,10));
+  const expArr=days.map(d=>byDate[d]?.exp||0);
+  const ctrArr=days.map(d=>byDate[d]&&byDate[d].exp?(byDate[d].clk/byDate[d].exp*100).toFixed(3):0);
+  const dayLabels=days.map(d=>{const wd=['日','一','二','三','四','五','六'][new Date(d+' 00:00:00').getDay()];return d.slice(5)+'\n周'+wd;});
+
+  const dcEl=document.getElementById('weekDailyChart');
+  if(!weeklyCharts.daily) weeklyCharts.daily=echarts.init(dcEl);
+  weeklyCharts.daily.setOption({
+    backgroundColor:'transparent',
+    tooltip:{trigger:'axis',backgroundColor:'#1a1614',borderColor:'#33271f',textStyle:{color:'#D4C9C4'}},
+    legend:{data:['曝光UV','CTR%'],textStyle:{color:'#6e6260'},bottom:0,itemWidth:10,itemHeight:6},
+    grid:{top:10,bottom:40,left:62,right:62},
+    xAxis:{type:'category',data:dayLabels,axisLabel:{color:'#6e6260',fontSize:10},axisLine:{lineStyle:{color:'#33271f'}}},
+    yAxis:[
+      {type:'value',axisLabel:{color:'#6e6260',fontSize:9,formatter:v=>v>=10000?(v/10000).toFixed(0)+'w':v},splitLine:{lineStyle:{color:'#1a1614'}},axisLine:{lineStyle:{color:'#33271f'}}},
+      {type:'value',axisLabel:{color:'#6e6260',fontSize:9,formatter:v=>v+'%'},splitLine:{show:false},axisLine:{lineStyle:{color:'#33271f'}}}
+    ],
+    series:[
+      {name:'曝光UV',type:'bar',data:expArr,yAxisIndex:0,itemStyle:{color:'#C43F24',borderRadius:[2,2,0,0]},barMaxWidth:30},
+      {name:'CTR%',type:'line',data:ctrArr,yAxisIndex:1,smooth:true,symbol:'circle',symbolSize:5,lineStyle:{color:'#FF7132',width:2},itemStyle:{color:'#FF7132'}}
+    ]
+  });
+
+  // 分类占比
+  const catExp={};
+  weekData.forEach(d=>{const cat=MAT_MAP[d.img]||'未分类';catExp[cat]=(catExp[cat]||0)+d.exposure;});
+  const catColors={'对抗':'#E05252','生存':'#7EC98A','建造':'#D4882A','探索':'#6AAFCF','趣味':'#b388ff','福利':'#FF7132','武器':'#C43F24','未分类':'#4a3f3a'};
+  const catPie=Object.entries(catExp).map(([k,v])=>({name:k,value:v,itemStyle:{color:catColors[k]||'#888'}}));
+  const ccEl=document.getElementById('weekCatChart');
+  if(!weeklyCharts.cat) weeklyCharts.cat=echarts.init(ccEl);
+  weeklyCharts.cat.setOption({
+    backgroundColor:'transparent',
+    tooltip:{trigger:'item',backgroundColor:'#1a1614',borderColor:'#33271f',textStyle:{color:'#D4C9C4'},formatter:'{b}: {d}%'},
+    legend:{bottom:0,textStyle:{color:'#6e6260'},itemWidth:8,itemHeight:8},
+    series:[{type:'pie',radius:['40%','70%'],center:['50%','45%'],data:catPie,label:{color:'#9a8e88',fontSize:11},labelLine:{lineStyle:{color:'#33271f'}}}]
+  });
+
+  // 近8周趋势
+  const weekSel=document.getElementById('weekSelect');
+  const allWeeks=[...weekSel.options].map(o=>o.value).reverse();
+  const curIdx=allWeeks.indexOf(selWeek);
+  const r8=allWeeks.slice(Math.max(0,curIdx-7),curIdx+1);
+  const w8Exp=[],w8Ctr=[],w8Labels=[];
+  r8.forEach((wm,ri)=>{
+    const [,ws]=getWeekRange(wm);
+    const wd=bd.filter(d=>d.date>=wm&&d.date<=ws&&(!posF||d.position===posF));
+    w8Exp.push(wd.reduce((s,r)=>s+r.exposure,0));
+    w8Ctr.push(wd.length?+(wd.reduce((s,r)=>s+r.ctr,0)/wd.length).toFixed(3):0);
+    w8Labels.push('W'+(allWeeks.indexOf(wm)+1)+'\n'+wm.slice(5));
+  });
+
+  const wtEl=document.getElementById('weekTrendChart');
+  if(!weeklyCharts.trend) weeklyCharts.trend=echarts.init(wtEl);
+  weeklyCharts.trend.setOption({
+    backgroundColor:'transparent',
+    tooltip:{trigger:'axis',backgroundColor:'#1a1614',borderColor:'#33271f',textStyle:{color:'#D4C9C4'}},
+    grid:{top:10,bottom:35,left:62,right:16},
+    xAxis:{type:'category',data:w8Labels,axisLabel:{color:'#6e6260',fontSize:9},axisLine:{lineStyle:{color:'#33271f'}}},
+    yAxis:{type:'value',axisLabel:{color:'#6e6260',fontSize:9,formatter:v=>v>=10000?(v/10000).toFixed(0)+'w':v},splitLine:{lineStyle:{color:'#1a1614'}},axisLine:{lineStyle:{color:'#33271f'}}},
+    series:[{type:'bar',data:w8Exp,itemStyle:{color:function(p){return p.dataIndex===w8Exp.length-1?'#C43F24':'#2a1a16';},borderRadius:[2,2,0,0]},barMaxWidth:32,
+      markLine:{data:[{type:'average'}],lineStyle:{color:'#FF7132',type:'dashed'},label:{color:'#FF7132',fontSize:10,formatter:v=>fmt2(v.value)}}}]
+  });
+
+  const wcEl=document.getElementById('weekCtrTrendChart');
+  if(!weeklyCharts.ctrTrend) weeklyCharts.ctrTrend=echarts.init(wcEl);
+  weeklyCharts.ctrTrend.setOption({
+    backgroundColor:'transparent',
+    tooltip:{trigger:'axis',backgroundColor:'#1a1614',borderColor:'#33271f',textStyle:{color:'#D4C9C4'},formatter:p=>`CTR: ${p[0].value}%`},
+    grid:{top:10,bottom:35,left:50,right:16},
+    xAxis:{type:'category',data:w8Labels,axisLabel:{color:'#6e6260',fontSize:9},axisLine:{lineStyle:{color:'#33271f'}}},
+    yAxis:{type:'value',axisLabel:{color:'#6e6260',fontSize:9,formatter:v=>v+'%'},splitLine:{lineStyle:{color:'#1a1614'}},axisLine:{lineStyle:{color:'#33271f'}}},
+    series:[{type:'line',data:w8Ctr,smooth:true,symbol:'circle',symbolSize:6,
+      lineStyle:{color:'#7EC98A',width:2},itemStyle:{color:'#7EC98A'},
+      areaStyle:{color:{type:'linear',x:0,y:0,x2:0,y2:1,colorStops:[{offset:0,color:'rgba(126,201,138,.15)'},{offset:1,color:'transparent'}]}}}]
+  });
+
+  // 复盘总结
+  generateWeeklySummary(weekData, wMon, wSun, totalExp, totalClk, avgCtr, prevExp, prevCtr);
+
+  // 明细表格
+  const sorted=[...weekData].sort((a,b)=>new Date(a.date)-new Date(b.date)||b.exposure-a.exposure);
+  document.getElementById('weekDetailCount').textContent=`共 ${sorted.length} 条记录`;
+  const ctrColor2=ctr=>ctr>=1.5?'var(--green)':ctr>=0.8?'var(--secondary)':'var(--red)';
+  document.getElementById('weekTableBody').innerHTML=sorted.map(d=>{
+    const cat=MAT_MAP[d.img]||'';
+    const catMeta=CAT_META[cat]||{};
+    return `<tr>
+      <td style="color:var(--text-muted);font-size:11px;">${d.date}</td>
+      <td><div style="display:flex;align-items:center;gap:8px;">
+        <img src="${d.img}" style="width:40px;height:26px;object-fit:cover;border-radius:2px;border:1px solid var(--border);" onerror="this.style.opacity=0.2">
+        <span style="font-size:11px;color:var(--text-muted);max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${d.copy||''}">${d.copy||'-'}</span>
+      </div></td>
+      <td>${cat?`<span class="cat-badge cat-${cat}" style="font-size:10px;">${catMeta.icon||''} ${cat}</span>`:'-'}</td>
+      <td style="font-size:11px;">${d.position||'-'}</td>
+      <td><span class="badge ${d.type&&d.type.includes('动态')?'badge-d':'badge-s'}" style="font-size:10px;">${d.type||'-'}</span></td>
+      <td style="color:var(--primary);font-weight:600;">${fmt(d.exposure)}</td>
+      <td style="color:var(--green);">${fmt(d.clicks)}</td>
+      <td style="color:${ctrColor2(d.ctr||0)};font-weight:700;">${(d.ctr||0).toFixed(3)}%</td>
+    </tr>`;
+  }).join('');
+}
+
+function generateWeeklySummary(weekData, wMon, wSun, totalExp, totalClk, avgCtr, prevExp, prevCtr) {
+  if (!weekData.length) {
+    document.getElementById('weeklySummary').innerHTML='<span style="color:var(--text-muted);">本周暂无投放数据</span>';
+    return;
+  }
+  const expChgPct = prevExp ? ((totalExp-prevExp)/prevExp*100).toFixed(1) : null;
+  const ctrChgPct = prevCtr ? ((parseFloat(avgCtr)-prevCtr)/prevCtr*100).toFixed(1) : null;
+  const catExp={};
+  weekData.forEach(d=>{const cat=MAT_MAP[d.img]||'未分类';catExp[cat]=(catExp[cat]||0)+d.exposure;});
+  const topCat=Object.entries(catExp).sort((a,b)=>b[1]-a[1]);
+  const topCtr=[...weekData].sort((a,b)=>b.ctr-a.ctr).slice(0,3);
+  const posExp={};
+  weekData.forEach(d=>{posExp[d.position]=(posExp[d.position]||0)+d.exposure;});
+  const topPos=Object.entries(posExp).sort((a,b)=>b[1]-a[1]);
+
+  const expTrend = expChgPct!==null
+    ? (parseFloat(expChgPct)>=0
+      ? `<span style="color:var(--green)">↑${expChgPct}%</span>`
+      : `<span style="color:var(--red)">↓${Math.abs(expChgPct)}%</span>`)
+    : '（无上周数据）';
+  const ctrTrend = ctrChgPct!==null
+    ? (parseFloat(ctrChgPct)>=0
+      ? `<span style="color:var(--green)">↑${ctrChgPct}%</span>`
+      : `<span style="color:var(--red)">↓${Math.abs(ctrChgPct)}%</span>`)
+    : '（无上周数据）';
+
+  document.getElementById('weeklySummary').innerHTML=`
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+      <div>
+        <div style="color:var(--brand-red-2);font-size:11px;letter-spacing:1px;text-transform:uppercase;font-family:'Share Tech Mono',monospace;margin-bottom:10px;">📊 整体表现</div>
+        <div>• 本周（${wMon}~${wSun}）共投放 <strong style="color:var(--text)">${weekData.length}</strong> 条记录</div>
+        <div>• 总曝光 <strong style="color:var(--primary)">${fmt2(totalExp)}</strong>，较上周 ${expTrend}</div>
+        <div>• 平均CTR <strong style="color:${parseFloat(avgCtr)>=1?'var(--green)':'var(--red)'}">${avgCtr}%</strong>，较上周 ${ctrTrend}</div>
+        <div>• 总点击 <strong style="color:var(--green)">${fmt2(totalClk)}</strong></div>
+      </div>
+      <div>
+        <div style="color:var(--brand-red-2);font-size:11px;letter-spacing:1px;text-transform:uppercase;font-family:'Share Tech Mono',monospace;margin-bottom:10px;">🎯 方向分布</div>
+        ${topCat.slice(0,5).map(([cat,exp],i)=>`<div>• ${i===0?'<strong style="color:var(--text)">':''}<span style="color:${(CAT_META[cat]||{}).color||'var(--text-dim)'}">【${cat}】</span> 曝光 ${fmt2(exp)}（${(exp/totalExp*100).toFixed(1)}%）${i===0?'</strong> <span style="color:var(--green);font-size:11px;">🔥主力方向</span>':''}</div>`).join('')}
+      </div>
+      <div>
+        <div style="color:var(--brand-red-2);font-size:11px;letter-spacing:1px;text-transform:uppercase;font-family:'Share Tech Mono',monospace;margin-bottom:10px;">⚡ 高效素材（CTR TOP3）</div>
+        ${topCtr.map(d=>`<div>• <strong style="color:var(--green)">${(d.ctr||0).toFixed(3)}%</strong> · <span style="font-size:11px;color:var(--text-muted)">${d.position}</span> · <span style="color:var(--text-muted);font-size:11px;">${d.date}</span></div>`).join('')}
+      </div>
+      <div>
+        <div style="color:var(--brand-red-2);font-size:11px;letter-spacing:1px;text-transform:uppercase;font-family:'Share Tech Mono',monospace;margin-bottom:10px;">📍 资源位分布</div>
+        ${topPos.map(([pos,exp])=>`<div>• ${pos} <strong style="color:var(--text-dim)">${fmt2(exp)}</strong>（${(exp/totalExp*100).toFixed(1)}%）</div>`).join('')}
+        ${parseFloat(avgCtr)<0.8?`<div style="margin-top:8px;padding:8px;background:var(--red-bg);border:1px solid rgba(224,82,82,.2);border-radius:4px;font-size:12px;color:var(--red);">⚠️ 本周整体CTR偏低，建议优化创意素材或调整投放策略</div>`:''}
+        ${parseFloat(avgCtr)>=1.5?`<div style="margin-top:8px;padding:8px;background:var(--green-bg);border:1px solid rgba(126,201,138,.2);border-radius:4px;font-size:12px;color:var(--green);">✅ 本周CTR表现优秀，建议继续加投高效素材</div>`:''}
+      </div>
+    </div>
+  `;
+}
 
 // 初始化
 checkAuthOnLoad();

@@ -295,60 +295,6 @@
     "category": "建造"
   },
   {
-    "img": "imgs/image67.png",
-    "img_file": "image67.png",
-    "total_exposure": 63797,
-    "total_clicks": 744,
-    "avg_ctr": 1.17,
-    "max_ctr": 1.17,
-    "min_ctr": 1.17,
-    "invest_count": 1,
-    "positions": [
-      "首帧轮播-定投100w"
-    ],
-    "types": [
-      "静态+动态视频"
-    ],
-    "copies": [
-      "真•开放世界生存对抗游戏\n预约领限定枪皮，抽5070"
-    ],
-    "dates": [
-      "2025-09-07"
-    ],
-    "date_range": [
-      "2025-09-07",
-      "2025-09-07"
-    ],
-    "category": "生存"
-  },
-  {
-    "img": "imgs/image66.png",
-    "img_file": "image66.png",
-    "total_exposure": 61884,
-    "total_clicks": 706,
-    "avg_ctr": 1.14,
-    "max_ctr": 1.14,
-    "min_ctr": 1.14,
-    "invest_count": 1,
-    "positions": [
-      "首帧轮播-定投100w"
-    ],
-    "types": [
-      "静态+动态视频"
-    ],
-    "copies": [
-      "掠夺资源 荒岛称霸\n9月登岛测试，立即报名！"
-    ],
-    "dates": [
-      "2025-09-07"
-    ],
-    "date_range": [
-      "2025-09-07",
-      "2025-09-07"
-    ],
-    "category": "建造"
-  },
-  {
     "img": "imgs/image6.jpg",
     "img_file": "image6.jpg",
     "total_exposure": 609949,
@@ -436,92 +382,32 @@
     "category": "探索"
   },
   {
-    "img": "imgs/image65.png",
-    "img_file": "image65.png",
-    "total_exposure": 86058,
-    "total_clicks": 1065,
-    "avg_ctr": 1.135,
-    "max_ctr": 1.32,
-    "min_ctr": 0.95,
-    "invest_count": 2,
-    "positions": [
-      "商店轮播-定投200w",
-      "首帧轮播-定投100w"
-    ],
-    "types": [
-      "静态+动态视频"
-    ],
-    "copies": [
-      "丛林法则 生存试炼\n9月登岛测试，立即报名！",
-      "丛林法则 生存试炼\n预约领限定枪皮，抽5070"
-    ],
-    "dates": [
-      "2025-09-06",
-      "2025-09-07"
-    ],
-    "date_range": [
-      "2025-09-06",
-      "2025-09-07"
-    ],
-    "category": "生存"
-  },
-  {
-    "img": "imgs/image24.png",
-    "img_file": "image24.png",
-    "total_exposure": 881194,
-    "total_clicks": 6887,
-    "avg_ctr": 1.1205,
-    "max_ctr": 2.27,
-    "min_ctr": 0.44,
-    "invest_count": 4,
-    "positions": [
-      "商店轮播-全量",
-      "首帧轮播-定投100w"
-    ],
-    "types": [
-      "静态+动态视频",
-      "静态"
-    ],
-    "copies": [
-      "RUST正版玩法授权\n9月19日登岛测试，立即报名！",
-      "RUST正版玩法授权\n9月大规模测试，PC抢先招募中"
-    ],
-    "dates": [
-      "2025-08-04",
-      "2025-08-06",
-      "2025-08-09",
-      "2025-08-11"
-    ],
-    "date_range": [
-      "2025-08-04",
-      "2025-08-11"
-    ],
-    "category": "探索"
-  },
-  {
     "img": "imgs/image15.png",
     "img_file": "image15.png",
-    "total_exposure": 519897,
-    "total_clicks": 5780,
-    "avg_ctr": 1.11,
+    "total_exposure": 903653,
+    "total_clicks": 8672,
+    "avg_ctr": 0.96,
     "max_ctr": 1.11,
     "min_ctr": 1.11,
-    "invest_count": 1,
+    "invest_count": 2,
     "positions": [
       "商店轮播-全量"
     ],
     "types": [
-      "静态"
+      "静态",
+      "静态+动态视频"
     ],
     "copies": [
-      "全球顶流生存对抗游戏9月测试\nPC抢先招募，预约赢5070"
+      "全球顶流生存对抗游戏9月测试\nPC抢先招募，预约赢5070",
+      "真•开放世界生存对抗游戏\n预约领枪皮，抽京东卡、5070"
     ],
     "dates": [
-      "2025-07-23"
+      "2025-07-23",
+      "2025-09-07"
     ],
     "date_range": [
       "2025-07-23",
-      "2025-07-23"
+      "2025-09-07"
     ],
     "category": "福利"
   },
@@ -966,12 +852,12 @@
   {
     "img": "imgs/image28.png",
     "img_file": "image28.png",
-    "total_exposure": 1859509,
-    "total_clicks": 13981,
-    "avg_ctr": 0.9673,
+    "total_exposure": 2555608,
+    "total_clicks": 19188,
+    "avg_ctr": 0.751,
     "max_ctr": 2.32,
     "min_ctr": 0.44,
-    "invest_count": 7,
+    "invest_count": 10,
     "positions": [
       "商店轮播-全量",
       "首帧轮播-定投100w"
@@ -985,7 +871,9 @@
       "全球顶流生存对抗游戏9月测试\nPC抢先招募，预约赢5070",
       "丛林法则 生存试炼\n预约领限定枪皮，抽5070",
       "RUST正版玩法授权\n9月19日登岛测试，立即报名！",
-      "RUST正版玩法授权\n9月大规模测试，PC抢先招募中"
+      "RUST正版玩法授权\n9月大规模测试，PC抢先招募中",
+      "RUST玩法授权，领预约豪礼\n9月19日登岛测试，立即报名！",
+      "9月登岛测试，立即报名！\nRUST玩法授权，领预约豪礼"
     ],
     "dates": [
       "2025-08-04",
@@ -994,7 +882,10 @@
       "2025-08-11",
       "2025-08-24",
       "2025-08-29",
-      "2025-08-30"
+      "2025-08-30",
+      "2025-08-16",
+      "2025-08-22",
+      "2025-08-13"
     ],
     "date_range": [
       "2025-08-04",
@@ -1102,60 +993,6 @@
     "category": "福利"
   },
   {
-    "img": "imgs/image32.png",
-    "img_file": "image32.png",
-    "total_exposure": 46381,
-    "total_clicks": 445,
-    "avg_ctr": 0.96,
-    "max_ctr": 0.96,
-    "min_ctr": 0.96,
-    "invest_count": 1,
-    "positions": [
-      "首帧轮播-定投100w"
-    ],
-    "types": [
-      "静态"
-    ],
-    "copies": [
-      "RUST玩法授权，领预约豪礼\n9月19日登岛测试，立即报名！"
-    ],
-    "dates": [
-      "2025-08-13"
-    ],
-    "date_range": [
-      "2025-08-13",
-      "2025-08-13"
-    ],
-    "category": "福利"
-  },
-  {
-    "img": "imgs/image33.png",
-    "img_file": "image33.png",
-    "total_exposure": 44175,
-    "total_clicks": 425,
-    "avg_ctr": 0.96,
-    "max_ctr": 0.96,
-    "min_ctr": 0.96,
-    "invest_count": 1,
-    "positions": [
-      "首帧轮播-定投100w"
-    ],
-    "types": [
-      "静态"
-    ],
-    "copies": [
-      "RUST玩法授权，领预约豪礼\n9月19日登岛测试，立即报名！"
-    ],
-    "dates": [
-      "2025-08-13"
-    ],
-    "date_range": [
-      "2025-08-13",
-      "2025-08-13"
-    ],
-    "category": "福利"
-  },
-  {
     "img": "imgs/image173.jpg",
     "img_file": "image173.jpg",
     "total_exposure": 2081,
@@ -1257,12 +1094,12 @@
   {
     "img": "imgs/image17.jpg",
     "img_file": "image17.jpg",
-    "total_exposure": 902163,
-    "total_clicks": 8824,
-    "avg_ctr": 0.94,
+    "total_exposure": 1245135,
+    "total_clicks": 10254,
+    "avg_ctr": 0.824,
     "max_ctr": 1.16,
     "min_ctr": 0.72,
-    "invest_count": 2,
+    "invest_count": 3,
     "positions": [
       "商店轮播-全量"
     ],
@@ -1272,11 +1109,13 @@
     ],
     "copies": [
       "搭建领地 攻防博弈\n9月登岛测试，立即报名！",
-      "RUST正版玩法授权\n9月大规模测试，PC抢先招募中"
+      "RUST正版玩法授权\n9月大规模测试，PC抢先招募中",
+      "全球顶流生存对抗游戏9月测试\nPC抢先招募，预约赢5070"
     ],
     "dates": [
       "2025-07-23",
-      "2025-09-07"
+      "2025-09-07",
+      "2025-08-04"
     ],
     "date_range": [
       "2025-07-23",
@@ -1370,12 +1209,12 @@
   {
     "img": "imgs/image11.jpg",
     "img_file": "image11.jpg",
-    "total_exposure": 11228031,
-    "total_clicks": 95607,
-    "avg_ctr": 0.9202,
+    "total_exposure": 12346925,
+    "total_clicks": 104822,
+    "avg_ctr": 0.849,
     "max_ctr": 2.2396,
     "min_ctr": 0.45,
-    "invest_count": 33,
+    "invest_count": 37,
     "positions": [
       "首帧轮播-全量",
       "商店轮播-全量",
@@ -1402,7 +1241,9 @@
       "开放世界 生存对抗\n收集情报领最高188Q币",
       "全球顶流生存对抗游戏9月测试\n抢先招募，预约领限定枪皮",
       "真•开放世界生存对抗游戏\n预约领枪皮，抽京东卡、5070",
-      "全球顶流生存对抗游戏9月测试\nPC抢先招募，预约领限定枪皮"
+      "全球顶流生存对抗游戏9月测试\nPC抢先招募，预约领限定枪皮",
+      "真·开放世界，顶流生存对抗\n预约领限定枪皮，抽5070",
+      "真·开放世界，顶流生存射击\n9月19日登岛测试，立即报名！"
     ],
     "dates": [
       "2025-07-05",
@@ -1437,7 +1278,11 @@
       "2025-10-04",
       "2025-10-05",
       "2025-10-06",
-      "2025-10-09"
+      "2025-10-09",
+      "2025-08-24",
+      "2025-08-29",
+      "2025-08-30",
+      "2025-08-13"
     ],
     "date_range": [
       "2025-07-05",
@@ -1472,33 +1317,6 @@
       "2026-03-24"
     ],
     "category": "对抗"
-  },
-  {
-    "img": "imgs/image30.jpg",
-    "img_file": "image30.jpg",
-    "total_exposure": 431727,
-    "total_clicks": 3876,
-    "avg_ctr": 0.9,
-    "max_ctr": 0.9,
-    "min_ctr": 0.9,
-    "invest_count": 1,
-    "positions": [
-      "商店轮播-全量"
-    ],
-    "types": [
-      "静态"
-    ],
-    "copies": [
-      "RUST正版玩法授权\n9月19日登岛测试，立即报名！"
-    ],
-    "dates": [
-      "2025-08-09"
-    ],
-    "date_range": [
-      "2025-08-09",
-      "2025-08-09"
-    ],
-    "category": "福利"
   },
   {
     "img": "imgs/image5.jpg",
@@ -1753,15 +1571,16 @@
   {
     "img": "imgs/image10.jpg",
     "img_file": "image10.jpg",
-    "total_exposure": 2119534,
-    "total_clicks": 17683,
-    "avg_ctr": 0.8714,
+    "total_exposure": 3044903,
+    "total_clicks": 24995,
+    "avg_ctr": 0.821,
     "max_ctr": 1.19,
     "min_ctr": 0.45,
-    "invest_count": 7,
+    "invest_count": 12,
     "positions": [
       "商店轮播-全量",
-      "商店轮播-定投200w"
+      "商店轮播-定投200w",
+      "首帧轮播-定投100w"
     ],
     "types": [
       "静态+动态视频",
@@ -1772,7 +1591,8 @@
       "RUST正版玩法授权\n9月大规模测试，PC抢先招募中",
       "标题：RUST正版玩法授权\n副标：硬核生存对抗，预约抽5070",
       "9月登岛测试，立即报名！\nRUST玩法授权，领预约豪礼",
-      "RUST正版玩法授权\n9月大规模测试 PC抢先招募中"
+      "RUST正版玩法授权\n9月大规模测试 PC抢先招募中",
+      "RUST正版玩法授权\n9月19日登岛测试，立即报名！"
     ],
     "dates": [
       "2025-07-05",
@@ -1781,7 +1601,12 @@
       "2025-07-19",
       "2025-07-23",
       "2025-08-16",
-      "2025-08-22"
+      "2025-08-22",
+      "2025-08-04",
+      "2025-08-06",
+      "2025-08-09",
+      "2025-08-11",
+      "2025-08-13"
     ],
     "date_range": [
       "2025-07-05",
@@ -1817,33 +1642,6 @@
     "date_range": [
       "2025-07-05",
       "2025-07-15"
-    ],
-    "category": "福利"
-  },
-  {
-    "img": "imgs/image35.jpg",
-    "img_file": "image35.jpg",
-    "total_exposure": 41940,
-    "total_clicks": 361,
-    "avg_ctr": 0.86,
-    "max_ctr": 0.86,
-    "min_ctr": 0.86,
-    "invest_count": 1,
-    "positions": [
-      "首帧轮播-定投100w"
-    ],
-    "types": [
-      "静态"
-    ],
-    "copies": [
-      "RUST玩法授权，领预约豪礼\n9月19日登岛测试，立即报名！"
-    ],
-    "dates": [
-      "2025-08-13"
-    ],
-    "date_range": [
-      "2025-08-13",
-      "2025-08-13"
     ],
     "category": "福利"
   },
@@ -2482,36 +2280,6 @@
     "category": "福利"
   },
   {
-    "img": "imgs/image51.png",
-    "img_file": "image51.png",
-    "total_exposure": 1072513,
-    "total_clicks": 8770,
-    "avg_ctr": 0.8167,
-    "max_ctr": 0.87,
-    "min_ctr": 0.76,
-    "invest_count": 3,
-    "positions": [
-      "商店轮播-全量"
-    ],
-    "types": [
-      "静态"
-    ],
-    "copies": [
-      "真·开放世界，顶流生存对抗\n预约领限定枪皮，抽5070",
-      "真·开放世界，顶流生存射击\n9月19日登岛测试，立即报名！"
-    ],
-    "dates": [
-      "2025-08-24",
-      "2025-08-29",
-      "2025-08-30"
-    ],
-    "date_range": [
-      "2025-08-24",
-      "2025-08-30"
-    ],
-    "category": "探索"
-  },
-  {
     "img": "imgs/image109.jpg",
     "img_file": "image109.jpg",
     "total_exposure": 10715693,
@@ -3090,29 +2858,33 @@
   {
     "img": "imgs/image54.png",
     "img_file": "image54.png",
-    "total_exposure": 1043286,
-    "total_clicks": 7997,
-    "avg_ctr": 0.7633,
+    "total_exposure": 1712841,
+    "total_clicks": 13027,
+    "avg_ctr": 0.761,
     "max_ctr": 0.84,
     "min_ctr": 0.69,
-    "invest_count": 3,
+    "invest_count": 5,
     "positions": [
       "商店轮播-全量"
     ],
     "types": [
-      "静态"
+      "静态",
+      "静态+动态视频"
     ],
     "copies": [
       "人性试炼场，活到最后才是赢家\n9月19日登岛测试，立即报名！",
-      "人性试炼场，活到最后才是赢家\n登岛测试，立即报名！"
+      "人性试炼场，活到最后才是赢家\n登岛测试，立即报名！",
+      "RUST玩法授权，领预约豪礼\n9月19日登岛测试，立即报名！"
     ],
     "dates": [
       "2025-08-24",
       "2025-08-29",
-      "2025-08-30"
+      "2025-08-30",
+      "2025-08-16",
+      "2025-08-22"
     ],
     "date_range": [
-      "2025-08-24",
+      "2025-08-16",
       "2025-08-30"
     ],
     "category": "生存"
@@ -3327,33 +3099,6 @@
     "category": "福利"
   },
   {
-    "img": "imgs/image68.jpg",
-    "img_file": "image68.jpg",
-    "total_exposure": 383756,
-    "total_clicks": 2892,
-    "avg_ctr": 0.75,
-    "max_ctr": 0.75,
-    "min_ctr": 0.75,
-    "invest_count": 1,
-    "positions": [
-      "商店轮播-全量"
-    ],
-    "types": [
-      "静态+动态视频"
-    ],
-    "copies": [
-      "真•开放世界生存对抗游戏\n预约领枪皮，抽京东卡、5070"
-    ],
-    "dates": [
-      "2025-09-07"
-    ],
-    "date_range": [
-      "2025-09-07",
-      "2025-09-07"
-    ],
-    "category": "生存"
-  },
-  {
     "img": "imgs/image73.png",
     "img_file": "image73.png",
     "total_exposure": 266528,
@@ -3406,65 +3151,6 @@
       "2025-09-09"
     ],
     "category": "探索"
-  },
-  {
-    "img": "imgs/image38.jpg",
-    "img_file": "image38.jpg",
-    "total_exposure": 669555,
-    "total_clicks": 5030,
-    "avg_ctr": 0.7497,
-    "max_ctr": 0.81,
-    "min_ctr": 0.6894,
-    "invest_count": 2,
-    "positions": [
-      "商店轮播-全量"
-    ],
-    "types": [
-      "静态+动态视频",
-      "静态"
-    ],
-    "copies": [
-      "RUST玩法授权，领预约豪礼\n9月19日登岛测试，立即报名！"
-    ],
-    "dates": [
-      "2025-08-16",
-      "2025-08-22"
-    ],
-    "date_range": [
-      "2025-08-16",
-      "2025-08-22"
-    ],
-    "category": "福利"
-  },
-  {
-    "img": "imgs/image41.jpg",
-    "img_file": "image41.jpg",
-    "total_exposure": 655662,
-    "total_clicks": 4909,
-    "avg_ctr": 0.748,
-    "max_ctr": 0.8,
-    "min_ctr": 0.6959,
-    "invest_count": 2,
-    "positions": [
-      "商店轮播-全量"
-    ],
-    "types": [
-      "静态+动态视频",
-      "静态"
-    ],
-    "copies": [
-      "RUST玩法授权，领预约豪礼\n9月19日登岛测试，立即报名！",
-      "9月登岛测试，立即报名！\nRUST玩法授权，领预约豪礼"
-    ],
-    "dates": [
-      "2025-08-16",
-      "2025-08-22"
-    ],
-    "date_range": [
-      "2025-08-16",
-      "2025-08-22"
-    ],
-    "category": "福利"
   },
   {
     "img": "imgs/image120.jpg",
@@ -3537,33 +3223,6 @@
     "img_file": "image36.jpg",
     "total_exposure": 40760,
     "total_clicks": 300,
-    "avg_ctr": 0.74,
-    "max_ctr": 0.74,
-    "min_ctr": 0.74,
-    "invest_count": 1,
-    "positions": [
-      "首帧轮播-定投100w"
-    ],
-    "types": [
-      "静态"
-    ],
-    "copies": [
-      "RUST玩法授权，领预约豪礼\n9月19日登岛测试，立即报名！"
-    ],
-    "dates": [
-      "2025-08-13"
-    ],
-    "date_range": [
-      "2025-08-13",
-      "2025-08-13"
-    ],
-    "category": "福利"
-  },
-  {
-    "img": "imgs/image37.png",
-    "img_file": "image37.png",
-    "total_exposure": 40437,
-    "total_clicks": 298,
     "avg_ctr": 0.74,
     "max_ctr": 0.74,
     "min_ctr": 0.74,
@@ -3741,31 +3400,35 @@
   {
     "img": "imgs/image48.jpg",
     "img_file": "image48.jpg",
-    "total_exposure": 838142,
-    "total_clicks": 6259,
-    "avg_ctr": 0.7233,
+    "total_exposure": 900026,
+    "total_clicks": 6965,
+    "avg_ctr": 0.774,
     "max_ctr": 0.78,
     "min_ctr": 0.61,
-    "invest_count": 3,
+    "invest_count": 4,
     "positions": [
-      "商店轮播-全量"
+      "商店轮播-全量",
+      "首帧轮播-定投100w"
     ],
     "types": [
-      "静态"
+      "静态",
+      "静态+动态视频"
     ],
     "copies": [
       "开放世界，生存射击【搜打拆】\n9月19日登岛测试，立即报名！",
       "开放世界，生存对抗【搜打拆】\n预约领限定枪皮，抽5070",
-      "RUST玩法授权，领预约豪礼\n9月19日登岛测试，立即报名！"
+      "RUST玩法授权，领预约豪礼\n9月19日登岛测试，立即报名！",
+      "掠夺资源 荒岛称霸\n9月登岛测试，立即报名！"
     ],
     "dates": [
       "2025-08-22",
       "2025-08-24",
-      "2025-08-29"
+      "2025-08-29",
+      "2025-09-07"
     ],
     "date_range": [
       "2025-08-22",
-      "2025-08-29"
+      "2025-09-07"
     ],
     "category": "对抗"
   },
@@ -3805,39 +3468,46 @@
   {
     "img": "imgs/image56.jpg",
     "img_file": "image56.jpg",
-    "total_exposure": 343833,
-    "total_clicks": 2451,
-    "avg_ctr": 0.71,
+    "total_exposure": 429891,
+    "total_clicks": 3516,
+    "avg_ctr": 0.818,
     "max_ctr": 0.71,
     "min_ctr": 0.71,
-    "invest_count": 1,
+    "invest_count": 3,
     "positions": [
-      "商店轮播-全量"
+      "商店轮播-全量",
+      "商店轮播-定投200w",
+      "首帧轮播-定投100w"
     ],
     "types": [
-      "静态"
+      "静态",
+      "静态+动态视频"
     ],
     "copies": [
-      "丛林法则，生存试炼，绝境突围\n登岛测试，立即报名！"
+      "丛林法则，生存试炼，绝境突围\n登岛测试，立即报名！",
+      "丛林法则 生存试炼\n9月登岛测试，立即报名！",
+      "丛林法则 生存试炼\n预约领限定枪皮，抽5070"
     ],
     "dates": [
-      "2025-08-30"
+      "2025-08-30",
+      "2025-09-06",
+      "2025-09-07"
     ],
     "date_range": [
       "2025-08-30",
-      "2025-08-30"
+      "2025-09-07"
     ],
     "category": "生存"
   },
   {
     "img": "imgs/image49.png",
     "img_file": "image49.png",
-    "total_exposure": 1157607,
-    "total_clicks": 8330,
-    "avg_ctr": 0.7025,
+    "total_exposure": 1589334,
+    "total_clicks": 12206,
+    "avg_ctr": 0.768,
     "max_ctr": 0.8,
     "min_ctr": 0.6,
-    "invest_count": 4,
+    "invest_count": 5,
     "positions": [
       "商店轮播-全量"
     ],
@@ -3847,16 +3517,18 @@
     "copies": [
       "开放世界【搜打拆】\n预约领枪皮，抽京东卡、5070",
       "开放世界【搜打拆】，预约领枪皮\n9月19日登岛测试，立即报名！",
-      "RUST玩法授权，领预约豪礼\n9月19日登岛测试，立即报名！"
+      "RUST玩法授权，领预约豪礼\n9月19日登岛测试，立即报名！",
+      "RUST正版玩法授权\n9月19日登岛测试，立即报名！"
     ],
     "dates": [
       "2025-08-22",
       "2025-08-24",
       "2025-08-29",
-      "2025-08-30"
+      "2025-08-30",
+      "2025-08-09"
     ],
     "date_range": [
-      "2025-08-22",
+      "2025-08-09",
       "2025-08-30"
     ],
     "category": "对抗"
@@ -3864,12 +3536,12 @@
   {
     "img": "imgs/image116.jpg",
     "img_file": "image116.jpg",
-    "total_exposure": 424999,
-    "total_clicks": 3028,
-    "avg_ctr": 0.7007,
+    "total_exposure": 795432,
+    "total_clicks": 5374,
+    "avg_ctr": 0.676,
     "max_ctr": 0.9096,
     "min_ctr": 0.56,
-    "invest_count": 4,
+    "invest_count": 6,
     "positions": [
       "商店轮播-全量",
       "商店轮播-定投200w",
@@ -3880,48 +3552,55 @@
     ],
     "copies": [
       "没见过这么野的生存对抗游戏\n预约领枪皮，暴击千元Q币！",
-      "掠夺资源 建造你的专属领地\n共研服招募开启，立即报名！"
+      "掠夺资源 建造你的专属领地\n共研服招募开启，立即报名！",
+      "没见过这么野的生存对抗游戏\n集结好友暴击千元Q币"
     ],
     "dates": [
       "2025-11-01",
       "2025-11-22",
       "2025-11-28",
-      "2025-12-18"
+      "2025-12-18",
+      "2025-12-27",
+      "2026-01-04"
     ],
     "date_range": [
       "2025-11-01",
-      "2025-12-18"
+      "2026-01-04"
     ],
     "category": "建造"
   },
   {
     "img": "imgs/image50.png",
     "img_file": "image50.png",
-    "total_exposure": 819565,
-    "total_clicks": 5908,
-    "avg_ctr": 0.69,
+    "total_exposure": 883362,
+    "total_clicks": 6652,
+    "avg_ctr": 0.753,
     "max_ctr": 0.78,
     "min_ctr": 0.57,
-    "invest_count": 3,
+    "invest_count": 4,
     "positions": [
-      "商店轮播-全量"
+      "商店轮播-全量",
+      "首帧轮播-定投100w"
     ],
     "types": [
-      "静态"
+      "静态",
+      "静态+动态视频"
     ],
     "copies": [
       "这次你当猎物还是猎人？\n登岛测试，立即报名！",
       "这次你当猎物还是猎人？\n9月19日登岛测试，立即报名！",
-      "RUST玩法授权，领预约豪礼\n9月19日登岛测试，立即报名！"
+      "RUST玩法授权，领预约豪礼\n9月19日登岛测试，立即报名！",
+      "真•开放世界生存对抗游戏\n预约领限定枪皮，抽5070"
     ],
     "dates": [
       "2025-08-22",
       "2025-08-24",
-      "2025-08-29"
+      "2025-08-29",
+      "2025-09-07"
     ],
     "date_range": [
       "2025-08-22",
-      "2025-08-29"
+      "2025-09-07"
     ],
     "category": "对抗"
   },
@@ -4037,36 +3716,6 @@
       "2025-09-04"
     ],
     "category": "建造"
-  },
-  {
-    "img": "imgs/image130.jpg",
-    "img_file": "image130.jpg",
-    "total_exposure": 370433,
-    "total_clicks": 2346,
-    "avg_ctr": 0.665,
-    "max_ctr": 0.7,
-    "min_ctr": 0.63,
-    "invest_count": 2,
-    "positions": [
-      "商店轮播-全量",
-      "商店轮播-定投200w"
-    ],
-    "types": [
-      "静态+动态视频"
-    ],
-    "copies": [
-      "没见过这么野的生存对抗游戏\n预约领枪皮，暴击千元Q币！",
-      "没见过这么野的生存对抗游戏\n集结好友暴击千元Q币"
-    ],
-    "dates": [
-      "2025-12-27",
-      "2026-01-04"
-    ],
-    "date_range": [
-      "2025-12-27",
-      "2026-01-04"
-    ],
-    "category": "趣味"
   },
   {
     "img": "imgs/image129.jpg",
@@ -4603,33 +4252,6 @@
     "category": "福利"
   },
   {
-    "img": "imgs/image25.png",
-    "img_file": "image25.png",
-    "total_exposure": 342972,
-    "total_clicks": 1430,
-    "avg_ctr": 0.42,
-    "max_ctr": 0.42,
-    "min_ctr": 0.42,
-    "invest_count": 1,
-    "positions": [
-      "商店轮播-全量"
-    ],
-    "types": [
-      "静态"
-    ],
-    "copies": [
-      "全球顶流生存对抗游戏9月测试\nPC抢先招募，预约赢5070"
-    ],
-    "dates": [
-      "2025-08-04"
-    ],
-    "date_range": [
-      "2025-08-04",
-      "2025-08-04"
-    ],
-    "category": "福利"
-  },
-  {
     "img": "imgs/image23.png",
     "img_file": "image23.png",
     "total_exposure": 336169,
@@ -4659,27 +4281,30 @@
   {
     "img": "imgs/image27.png",
     "img_file": "image27.png",
-    "total_exposure": 328535,
-    "total_clicks": 1315,
-    "avg_ctr": 0.4,
+    "total_exposure": 370475,
+    "total_clicks": 1676,
+    "avg_ctr": 0.452,
     "max_ctr": 0.4,
     "min_ctr": 0.4,
-    "invest_count": 1,
+    "invest_count": 2,
     "positions": [
-      "商店轮播-全量"
+      "商店轮播-全量",
+      "首帧轮播-定投100w"
     ],
     "types": [
       "静态"
     ],
     "copies": [
-      "全球顶流生存对抗游戏9月测试\nPC抢先招募，预约赢5070"
+      "全球顶流生存对抗游戏9月测试\nPC抢先招募，预约赢5070",
+      "RUST玩法授权，领预约豪礼\n9月19日登岛测试，立即报名！"
     ],
     "dates": [
-      "2025-08-04"
+      "2025-08-04",
+      "2025-08-13"
     ],
     "date_range": [
       "2025-08-04",
-      "2025-08-04"
+      "2025-08-13"
     ],
     "category": "福利"
   },
