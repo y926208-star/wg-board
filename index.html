@@ -1721,9 +1721,11 @@ let weeklyCharts = {};
 
 function getWeekRange(dateStr) {
   const d = new Date(dateStr + 'T00:00:00');
-  const day = d.getDay() || 7;
+  // JS getDay(): 0=周日,1=周一,...,6=周六
+  // 统一换算为周一=0,周二=1,...,周日=6
+  const day = (d.getDay() + 6) % 7; // 周一=0,...,周日=6
   const mon = new Date(d);
-  mon.setDate(d.getDate() - day + 1);
+  mon.setDate(d.getDate() - day);
   const sun = new Date(mon);
   sun.setDate(mon.getDate() + 6);
   return [mon.toISOString().slice(0,10), sun.toISOString().slice(0,10)];
@@ -1771,14 +1773,16 @@ function renderWeekly() {
   const weekData = bd.filter(d => d.date >= wMon && d.date <= wSun && (!posF || d.position === posF));
   const totalExp = weekData.reduce((s,r)=>s+r.exposure,0);
   const totalClk = weekData.reduce((s,r)=>s+r.clicks,0);
-  const avgCtr = weekData.length ? (weekData.reduce((s,r)=>s+r.ctr,0)/weekData.length).toFixed(3) : '0.000';
+  // 使用加权平均CTR（总点击/总曝光），更准确反映真实效率
+  const avgCtr = totalExp ? (totalClk/totalExp*100).toFixed(3) : '0.000';
   const prevMon = new Date(wMon); prevMon.setDate(prevMon.getDate()-7);
   const prevSun = new Date(wSun); prevSun.setDate(prevSun.getDate()-7);
   const prevMonStr = prevMon.toISOString().slice(0,10);
   const prevSunStr = prevSun.toISOString().slice(0,10);
   const prevData = bd.filter(d => d.date>=prevMonStr && d.date<=prevSunStr && (!posF||d.position===posF));
   const prevExp = prevData.reduce((s,r)=>s+r.exposure,0);
-  const prevCtr = prevData.length ? prevData.reduce((s,r)=>s+r.ctr,0)/prevData.length : 0;
+  const prevClk = prevData.reduce((s,r)=>s+r.clicks,0);
+  const prevCtr = prevExp ? prevClk/prevExp*100 : 0;
 
   function chgHtml(cur,prev) {
     if (!prev) return '';
@@ -1852,9 +1856,13 @@ function renderWeekly() {
   r8.forEach((wm,ri)=>{
     const [,ws]=getWeekRange(wm);
     const wd=bd.filter(d=>d.date>=wm&&d.date<=ws&&(!posF||d.position===posF));
-    w8Exp.push(wd.reduce((s,r)=>s+r.exposure,0));
-    w8Ctr.push(wd.length?+(wd.reduce((s,r)=>s+r.ctr,0)/wd.length).toFixed(3):0);
-    w8Labels.push('W'+(allWeeks.indexOf(wm)+1)+'\n'+wm.slice(5));
+    const wExp=wd.reduce((s,r)=>s+r.exposure,0);
+    const wClk=wd.reduce((s,r)=>s+r.clicks,0);
+    w8Exp.push(wExp);
+    // 加权CTR
+    w8Ctr.push(wExp?+(wClk/wExp*100).toFixed(3):0);
+    // 用相对序号W1~W8而不是全局周号
+    w8Labels.push('W'+(ri+1)+'\n'+wm.slice(5));
   });
 
   const wtEl=document.getElementById('weekTrendChart');
