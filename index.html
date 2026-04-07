@@ -1728,7 +1728,9 @@ function getWeekRange(dateStr) {
   mon.setDate(d.getDate() - day);
   const sun = new Date(mon);
   sun.setDate(mon.getDate() + 6);
-  return [mon.toISOString().slice(0,10), sun.toISOString().slice(0,10)];
+  // 用本地日期拼接，避免toISOString()转UTC导致东八区日期偏差
+  const fmt = dt => `${dt.getFullYear()}-${String(dt.getMonth()+1).padStart(2,'0')}-${String(dt.getDate()).padStart(2,'0')}`;
+  return [fmt(mon), fmt(sun)];
 }
 
 function fmt2(n) {
