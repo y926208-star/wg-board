@@ -1786,8 +1786,9 @@ function renderWeekly() {
   const avgCtr = totalExp ? (totalClk/totalExp*100).toFixed(3) : '0.000';
   const prevMon = new Date(wMon); prevMon.setDate(prevMon.getDate()-7);
   const prevSun = new Date(wSun); prevSun.setDate(prevSun.getDate()-7);
-  const prevMonStr = prevMon.toISOString().slice(0,10);
-  const prevSunStr = prevSun.toISOString().slice(0,10);
+  const fmtLocal = dt => dt.getFullYear()+'-'+String(dt.getMonth()+1).padStart(2,'0')+'-'+String(dt.getDate()).padStart(2,'0');
+  const prevMonStr = fmtLocal(prevMon);
+  const prevSunStr = fmtLocal(prevSun);
   const prevData = bd.filter(d => d.date>=prevMonStr && d.date<=prevSunStr && (!posF||d.position===posF));
   const prevExp = prevData.reduce((s,r)=>s+r.exposure,0);
   const prevClk = prevData.reduce((s,r)=>s+r.clicks,0);
@@ -1818,8 +1819,10 @@ function renderWeekly() {
     byDate[d.date].clk += d.clicks;
   });
   const days=[];
-  for(let d=new Date(wMon+' 00:00:00'); d<=new Date(wSun+' 00:00:00'); d.setDate(d.getDate()+1))
-    days.push(d.toISOString().slice(0,10));
+  for(let d=new Date(wMon+' 00:00:00'); d<=new Date(wSun+' 00:00:00'); d.setDate(d.getDate()+1)){
+    const dd=new Date(d);
+    days.push(dd.getFullYear()+'-'+String(dd.getMonth()+1).padStart(2,'0')+'-'+String(dd.getDate()).padStart(2,'0'));
+  }
   const expArr=days.map(d=>byDate[d]?.exp||0);
   const ctrArr=days.map(d=>byDate[d]&&byDate[d].exp?(byDate[d].clk/byDate[d].exp*100).toFixed(3):0);
   const dayLabels=days.map(d=>{const wd=['日','一','二','三','四','五','六'][new Date(d+' 00:00:00').getDay()];return d.slice(5)+'\n周'+wd;});
