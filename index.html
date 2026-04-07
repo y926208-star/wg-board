@@ -1906,7 +1906,7 @@ function renderWeekly() {
   generateWeeklySummary(weekData, wMon, wSun, totalExp, totalClk, avgCtr, prevExp, prevCtr);
 
   // 明细表格
-  const sorted=[...weekData].sort((a,b)=>new Date(a.date)-new Date(b.date)||b.exposure-a.exposure);
+  const sorted=[...weekData].sort((a,b)=>(b.ctr||0)-(a.ctr||0));
   document.getElementById('weekDetailCount').textContent=`共 ${sorted.length} 条记录`;
   const ctrColor2=ctr=>ctr>=1.5?'var(--green)':ctr>=0.8?'var(--secondary)':'var(--red)';
   document.getElementById('weekTableBody').innerHTML=sorted.map(d=>{
