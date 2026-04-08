@@ -936,6 +936,17 @@
     <div class="kpi-card"><div class="kpi-label">投放记录数</div><div class="kpi-value" id="wk-count">--</div><div class="kpi-sub" id="wk-count-sub">--</div></div>
   </div>
 
+  <!-- 周度复盘总结（置顶） -->
+  <div class="table-section" style="padding-top:16px;">
+    <div class="table-card">
+      <div class="table-header">
+        <div class="table-title">本周复盘总结</div>
+        <div class="table-info" id="weekSummaryRange">--</div>
+      </div>
+      <div id="weeklySummary" style="padding:20px 24px;line-height:2;font-size:13px;color:var(--text);"></div>
+    </div>
+  </div>
+
   <!-- 周度图表 -->
   <div class="charts-row" style="padding:16px 32px 0;">
     <div class="chart-card">
@@ -957,17 +968,6 @@
     <div class="chart-card">
       <div class="chart-title">近8周平均CTR趋势</div>
       <div id="weekCtrTrendChart" style="height:200px;"></div>
-    </div>
-  </div>
-
-  <!-- 周度复盘总结 -->
-  <div class="table-section" style="padding-top:16px;">
-    <div class="table-card">
-      <div class="table-header">
-        <div class="table-title">本周复盘总结</div>
-        <div class="table-info" id="weekSummaryRange">--</div>
-      </div>
-      <div id="weeklySummary" style="padding:20px 24px;line-height:2;font-size:13px;color:var(--text);"></div>
     </div>
   </div>
 
@@ -2045,7 +2045,7 @@ function generateWeeklySummary(weekData, wMon, wSun, totalExp, totalClk, avgCtr,
       </div>
       <div>
         <div style="color:var(--brand-red-2);font-size:11px;letter-spacing:1px;text-transform:uppercase;font-family:'Share Tech Mono',monospace;margin-bottom:10px;">⚡ 高效素材（CTR TOP3）</div>
-        ${topCtr.map(d=>`<div>• <strong style="color:var(--green)">${(d.ctr||0).toFixed(3)}%</strong> · <span style="font-size:11px;color:var(--text-muted)">${d.position}</span> · <span style="color:var(--text-muted);font-size:11px;">${d.date}</span></div>`).join('')}
+        ${topCtr.map(d=>{const cat=MAT_MAP[d.img]||'';const catMeta=CAT_META[cat]||{};return `<div>• <strong style="color:var(--green)">${(d.ctr||0).toFixed(3)}%</strong>${cat?` · <span style="display:inline-block;padding:1px 6px;border-radius:3px;font-size:10px;font-weight:600;background:${catMeta.color||'#666'}22;color:${catMeta.color||'#aaa'};border:1px solid ${catMeta.color||'#666'}44;">${catMeta.icon||''} ${cat}</span>`:''} · <span style="font-size:11px;color:var(--text-muted)">${d.position}</span> · <span style="color:var(--text-muted);font-size:11px;">${d.date}</span></div>`;}).join('')}
       </div>
       <div>
         <div style="color:var(--brand-red-2);font-size:11px;letter-spacing:1px;text-transform:uppercase;font-family:'Share Tech Mono',monospace;margin-bottom:10px;">📍 资源位分布</div>
