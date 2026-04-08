@@ -11,7 +11,16 @@ jobs:
     steps:
       - checkout: self
       - run: |
-          echo "=== 部署WG看板 ==="
-          ls -la
-          echo "文件已就绪，仓库内容可通过工蜂 Raw 访问"
-          echo "访问地址: https://git.woa.com/yongtaoyang/wegame/raw/main/index.html"
+          echo "=== 打包 WG看板 静态文件 ==="
+          mkdir -p dist
+          cp index.html dist/
+          cp materials.json dist/
+          cp board_data.json dist/
+          cp -r imgs dist/
+          echo "打包完成，文件列表："
+          ls -la dist/
+      - name: 归档构件
+        uses: UploadArtifactory@4.*
+        with:
+          filePath: "dist/**"
+          repoName: pipeline
