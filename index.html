@@ -705,6 +705,13 @@
   <span id="authBtnIcon">🔒</span>
   <span id="authBtnText">仅浏览</span>
 </button>
+<!-- 云同步配置按钮（仅编辑模式显示） -->
+<button class="auth-btn edit-only" id="syncCfgBtn" onclick="openGhTokenPopup()"
+  style="right:160px;display:none;font-size:11px;padding:6px 10px;"
+  title="配置 GitHub Token，让分类修改同步给所有人">
+  <span id="syncStatusIcon">☁️</span>
+  <span id="syncStatusText">配置云同步</span>
+</button>
 
 <!-- 登录弹窗 -->
 <div class="auth-overlay" id="authOverlay" onclick="if(event.target===this)closeAuthPopup()">
@@ -717,6 +724,26 @@
     <div class="auth-actions">
       <button class="auth-cancel-btn" onclick="closeAuthPopup()">取消</button>
       <button class="auth-submit-btn" onclick="submitAuth()">验证</button>
+    </div>
+  </div>
+</div>
+
+<!-- GitHub Token 配置弹窗 -->
+<div class="auth-overlay" id="ghTokenOverlay" onclick="if(event.target===this)closeGhTokenPopup()">
+  <div class="auth-popup" style="max-width:460px;">
+    <div class="auth-popup-title">🔑 配置 GitHub Token</div>
+    <div class="auth-popup-sub" style="line-height:1.7;">
+      配置后，分类修改将<strong style="color:var(--green)">实时同步到服务器</strong>，所有人立即可见。<br>
+      Token 仅存在你本地浏览器中，不会上传。<br>
+      <a href="https://github.com/settings/tokens/new?scopes=repo&description=wg-board" target="_blank"
+        style="color:var(--brand-red);font-size:11px;">点此生成 Token（需勾选 repo 权限）↗</a>
+    </div>
+    <input class="auth-input" id="ghTokenInput" type="password" placeholder="粘贴 GitHub Personal Access Token"
+      onkeydown="if(event.key==='Enter')saveGhToken()">
+    <div class="auth-err" id="ghTokenErr"></div>
+    <div class="auth-actions">
+      <button class="auth-cancel-btn" onclick="closeGhTokenPopup()">暂不配置（仅本地保存）</button>
+      <button class="auth-submit-btn" onclick="saveGhToken()">保存 Token</button>
     </div>
   </div>
 </div>
@@ -1512,29 +1539,47 @@ function setEditMode(on, token) {
     document.getElementById('authBtnIcon').textContent = '🔓';
     document.getElementById('authBtnText').textContent = '编辑模式';
     if (token) sessionStorage.setItem(AUTH_KEY, token);
+    // 显示云同步配置按钮
+    const syncBtn = document.getElementById('syncCfgBtn');
+    if (syncBtn) {
+      syncBtn.style.display = '';
+      updateSyncBtnStatus();
+    }
   } else {
     document.body.classList.remove('edit-mode');
     document.getElementById('authBtn').classList.remove('authed');
     document.getElementById('authBtnIcon').textContent = '🔒';
     document.getElementById('authBtnText').textContent = '仅浏览';
     sessionStorage.removeItem(AUTH_KEY);
+    const syncBtn = document.getElementById('syncCfgBtn');
+    if (syncBtn) syncBtn.style.display = 'none';
+  }
+}
+
+function updateSyncBtnStatus() {
+  const iconEl = document.getElementById('syncStatusIcon');
+  const textEl = document.getElementById('syncStatusText');
+  if (!iconEl || !textEl) return;
+  if (getGhToken()) {
+    iconEl.textContent = '🟢';
+    textEl.textContent = '云同步已开启';
+  } else {
+    iconEl.textContent = '☁️';
+    textEl.textContent = '配置云同步';
   }
 }
 
 async function checkAuthOnLoad() {
   const token = getToken();
-  // GitHub Pages 静态版：token 即为密码 hash，直接验证
   if (token === EDITOR_TOKEN) setEditMode(true);
   else if (token) sessionStorage.removeItem(AUTH_KEY);
 }
 
 function onAuthBtnClick() {
   if (document.body.classList.contains('edit-mode')) {
-    // 已登录 → 退出编辑模式
     setEditMode(false);
     showToast('🔒 已退出编辑模式');
   } else {
-    // 未登录 → 弹出密码框
     openAuthPopup();
   }
 }
@@ -1557,15 +1602,106 @@ async function submitAuth() {
   const inputEl = document.getElementById('authPwdInput');
   errEl.style.display = 'none';
   inputEl.classList.remove('error');
-  // GitHub Pages 静态版：前端直接对比密码
   if (pwd === EDITOR_PASSWORD) {
     setEditMode(true, EDITOR_TOKEN);
     closeAuthPopup();
     showToast('🔓 已进入编辑模式，可修改素材分类');
+    // 首次进入编辑模式，若未配置 Token 则提示配置
+    if (!getGhToken()) {
+      setTimeout(() => openGhTokenPopup(), 800);
+    }
   } else {
     inputEl.classList.add('error');
     errEl.style.display = 'block';
     errEl.textContent = '密码错误，请重试';
+  }
+}
+
+// =========================================================
+// GitHub Token 管理 & 分类云同步
+// =========================================================
+const GH_TOKEN_KEY = 'wgboard_gh_token';
+const GH_REPO     = 'y926208-star/wg-board';
+const GH_FILE     = 'materials.json';
+const GH_API      = `https://api.github.com/repos/${GH_REPO}/contents/${GH_FILE}`;
+
+function getGhToken() { return localStorage.getItem(GH_TOKEN_KEY) || ''; }
+
+function openGhTokenPopup() {
+  const el = document.getElementById('ghTokenInput');
+  el.value = getGhToken();
+  document.getElementById('ghTokenErr').style.display = 'none';
+  document.getElementById('ghTokenOverlay').classList.add('active');
+  setTimeout(() => el.focus(), 80);
+}
+
+function closeGhTokenPopup() {
+  document.getElementById('ghTokenOverlay').classList.remove('active');
+}
+
+async function saveGhToken() {
+  const token = document.getElementById('ghTokenInput').value.trim();
+  const errEl = document.getElementById('ghTokenErr');
+  errEl.style.display = 'none';
+  if (!token) { closeGhTokenPopup(); return; }
+  // 验证 token 是否有效（尝试获取文件 sha）
+  errEl.textContent = '验证中…';
+  errEl.style.display = 'block';
+  errEl.style.color = 'var(--text-muted)';
+  try {
+    const res = await fetch(GH_API, { headers: { Authorization: `token ${token}`, 'User-Agent': 'wg-board' } });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    localStorage.setItem(GH_TOKEN_KEY, token);
+    errEl.style.display = 'none';
+    closeGhTokenPopup();
+    updateSyncBtnStatus();
+    showToast('✅ Token 验证成功，分类修改将实时同步给所有人');
+  } catch(e) {
+    errEl.textContent = `Token 无效或无权限：${e.message}`;
+    errEl.style.color = 'var(--red)';
+    errEl.style.display = 'block';
+  }
+}
+
+// 将当前所有素材分类同步到 GitHub
+async function syncCatsToGitHub() {
+  const token = getGhToken();
+  if (!token) return false;
+  try {
+    // 1. 获取当前文件的 sha（更新接口必须传 sha）
+    const metaRes = await fetch(GH_API, {
+      headers: { Authorization: `token ${token}`, 'User-Agent': 'wg-board' }
+    });
+    if (!metaRes.ok) throw new Error(`获取文件失败 HTTP ${metaRes.status}`);
+    const meta = await metaRes.json();
+    const sha = meta.sha;
+
+    // 2. 用内存中最新的 LIB_DATA 构建 JSON（category 已是最新值）
+    const newContent = JSON.stringify(LIB_DATA, null, 2);
+    const encoded = btoa(unescape(encodeURIComponent(newContent)));
+
+    // 3. PUT 更新文件
+    const putRes = await fetch(GH_API, {
+      method: 'PUT',
+      headers: {
+        Authorization: `token ${token}`,
+        'Content-Type': 'application/json',
+        'User-Agent': 'wg-board'
+      },
+      body: JSON.stringify({
+        message: `chore: update material categories [wg-board]`,
+        content: encoded,
+        sha: sha
+      })
+    });
+    if (!putRes.ok) {
+      const errBody = await putRes.json().catch(() => ({}));
+      throw new Error(errBody.message || `HTTP ${putRes.status}`);
+    }
+    return true;
+  } catch(e) {
+    console.error('GitHub 同步失败:', e);
+    return e.message || false;
   }
 }
 
@@ -1634,15 +1770,26 @@ async function saveCatEdit() {
   if (libItem) libItem.category = catEditSelected;
   // 同步到 MAT_MAP（投放看板用到的映射）
   MAT_MAP[d.img] = catEditSelected;
-  // 保存到 localStorage（静态版持久化）
+  // 保存到 localStorage（本地兜底）
   saveCatToLS(d.img_file, catEditSelected);
   closeCatEdit();
   // 刷新素材库视图
   renderLib();
   // 无论在哪个 tab，始终同步刷新投放看板的分类图表
   renderCatCharts(filteredBoardData);
-  // 轻提示
-  showToast(`✅ 分类已保存为「${catEditSelected}」`);
+
+  // ── 云同步到 GitHub ──
+  if (getGhToken()) {
+    showToast(`☁️ 正在同步分类到服务器…`);
+    const result = await syncCatsToGitHub();
+    if (result === true) {
+      showToast(`✅ 「${catEditSelected}」已保存并同步，所有人即将看到更新`);
+    } else {
+      showToast(`⚠️ 本地已保存，云同步失败：${result || '未知错误'}。可重试或检查 Token`);
+    }
+  } else {
+    showToast(`✅ 分类已保存为「${catEditSelected}」（仅本地，配置 Token 可同步给所有人）`);
+  }
 }
 
 // 轻提示 Toast
