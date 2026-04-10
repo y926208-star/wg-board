@@ -55,6 +55,22 @@
     color: var(--text); line-height:1.6; overflow-x:hidden; min-height:100vh;
   }
 
+  /* ===== 数据管理后台 ===== */
+  .upload-drop-zone {
+    border: 2px dashed var(--border); border-radius: 8px;
+    padding: 32px 20px; text-align: center; transition: all .2s;
+    cursor: default;
+  }
+  .upload-drop-zone.drag-over {
+    border-color: var(--brand-red); background: var(--primary-bg);
+  }
+  #page-admin table th {
+    background: var(--bg-card-alt); padding: 7px 10px;
+    text-align: left; color: var(--text-muted); font-weight: 500; white-space: nowrap;
+  }
+  #page-admin table td { padding: 6px 10px; border-top: 1px solid var(--border); color: var(--text-dim); }
+  #page-admin table tr:hover td { background: rgba(196,63,36,.04); }
+
   /* ===== 权限控制 ===== */
   .auth-btn {
     position: fixed; top: 18px; right: 24px; z-index: 1000;
@@ -765,11 +781,14 @@
 <!-- 登录弹窗 -->
 <div class="auth-overlay" id="authOverlay" onclick="if(event.target===this)closeAuthPopup()">
   <div class="auth-popup">
-    <div class="auth-popup-title">🔐 编辑模式验证</div>
-    <div class="auth-popup-sub">输入编辑密码以解锁分类修改功能</div>
-    <input class="auth-input" id="authPwdInput" type="password" placeholder="请输入密码"
+    <div class="auth-popup-title">🔐 管理员验证</div>
+    <div class="auth-popup-sub">
+      <strong style="color:var(--text);">推荐：</strong>先在浏览器新标签页登录 <a href="https://pages.woa.com/admin" target="_blank" style="color:var(--brand-red-2);">pages.woa.com</a>，然后点击「验证」即可自动通过。<br>
+      <span style="font-size:11px;color:var(--text-muted);">备用：输入 OA Pages API Key（上传将通过终端命令完成）</span>
+    </div>
+    <input class="auth-input" id="authPwdInput" type="password" placeholder="留空直接验证Cookie，或输入 oa-pages-key-..."
       onkeydown="if(event.key==='Enter')submitAuth()">
-    <div class="auth-err" id="authErr">密码错误，请重试</div>
+    <div class="auth-err" id="authErr">验证失败，请检查是否已登录 pages.woa.com</div>
     <div class="auth-actions">
       <button class="auth-cancel-btn" onclick="closeAuthPopup()">取消</button>
       <button class="auth-submit-btn" onclick="submitAuth()">验证</button>
@@ -777,13 +796,13 @@
   </div>
 </div>
 
-<!-- ===== 导航 Tab ===== -->
-<div class="nav-bar">
+  <div class="nav-bar">
   <div class="nav-inner">
     <div class="tab-list">
       <button class="tab-btn active" onclick="switchTab('board')">📊 投放数据看板</button>
       <button class="tab-btn" onclick="switchTab('library')">🏆 优质素材沉淀库</button>
       <button class="tab-btn" onclick="switchTab('weekly')">📅 周度复盘</button>
+      <button class="tab-btn admin-only" id="tab-admin" onclick="switchTab('admin')" style="display:none;">⚙️ 数据管理</button>
     </div>
     <div class="nav-right">共 <strong id="totalRowsNav">686</strong> 条记录</div>
   </div>
@@ -991,6 +1010,116 @@
   </div>
 </div>
 
+</div>
+
+<!-- ===== 页面4：数据管理后台 ===== -->
+<div id="page-admin" class="page">
+  <div style="max-width:900px;margin:0 auto;padding:32px 24px 60px;">
+
+    <!-- 当前状态 -->
+    <div id="admin-status-bar" style="display:flex;align-items:center;gap:12px;padding:14px 18px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;margin-bottom:24px;">
+      <span style="color:var(--green);font-size:14px;">🔓</span>
+      <span style="font-size:13px;color:var(--text-dim);">管理员模式已激活</span>
+      <span style="flex:1;"></span>
+      <span style="font-size:11px;color:var(--text-muted);">API Key: <code id="admin-key-display" style="color:var(--brand-red-2);font-family:'Share Tech Mono',monospace;letter-spacing:.5px;"></code></span>
+    </div>
+
+    <!-- 上传投放数据 -->
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:24px;margin-bottom:20px;">
+      <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:6px;">📤 上传投放数据（board_data）</div>
+      <div style="font-size:12px;color:var(--text-muted);margin-bottom:16px;">支持 Excel (.xlsx/.xls) 或 CSV 文件。必须包含以下列：<code style="color:var(--brand-red-2);">date, copy, position, type, exposure, clicks, ctr, img</code></div>
+
+      <!-- 拖拽区域 -->
+      <div id="drop-board" class="upload-drop-zone" ondragover="event.preventDefault();this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="handleDrop(event,'board')">
+        <div style="font-size:32px;margin-bottom:10px;">📁</div>
+        <div style="font-size:13px;color:var(--text-dim);margin-bottom:6px;">拖拽文件到此处，或</div>
+        <label style="cursor:pointer;padding:7px 18px;background:var(--primary-bg);border:1px solid var(--primary-border);border-radius:5px;color:var(--brand-red-2);font-size:12px;">
+          选择文件
+          <input type="file" accept=".xlsx,.xls,.csv" style="display:none;" onchange="handleFileSelect(event,'board')">
+        </label>
+        <div style="font-size:11px;color:var(--text-muted);margin-top:8px;">支持 .xlsx / .xls / .csv · 最大 5MB</div>
+      </div>
+
+      <!-- 预览区 -->
+      <div id="preview-board" style="display:none;margin-top:16px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+          <div style="font-size:13px;color:var(--text);">
+            ✅ 解析成功：<strong id="preview-board-count" style="color:var(--green);">0</strong> 条记录
+            <span id="preview-board-new-badge" style="display:none;margin-left:8px;padding:2px 8px;background:var(--green-bg);border:1px solid rgba(126,201,138,.3);border-radius:4px;font-size:11px;color:var(--green);"></span>
+          </div>
+          <div style="display:flex;gap:8px;">
+            <select id="board-upload-mode" style="font-size:12px;padding:5px 10px;background:var(--bg-card-alt);border:1px solid var(--border);border-radius:4px;color:var(--text);">
+              <option value="append">追加（保留旧数据，添加新记录）</option>
+              <option value="overwrite">覆盖（替换全部数据）</option>
+            </select>
+            <button onclick="uploadBoardData()" style="padding:6px 16px;background:var(--brand-red);border:none;border-radius:5px;color:#fff;font-size:12px;cursor:pointer;font-family:inherit;">
+              🚀 发布更新
+            </button>
+          </div>
+        </div>
+        <div style="overflow-x:auto;max-height:220px;overflow-y:auto;border:1px solid var(--border);border-radius:6px;">
+          <table style="width:100%;border-collapse:collapse;font-size:11px;">
+            <thead id="preview-board-head" style="position:sticky;top:0;background:var(--bg-card);"></thead>
+            <tbody id="preview-board-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 进度提示 -->
+      <div id="upload-board-msg" style="display:none;margin-top:12px;padding:10px 14px;border-radius:6px;font-size:12px;"></div>
+    </div>
+
+    <!-- 上传素材库数据 -->
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:24px;margin-bottom:20px;">
+      <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:6px;">🏆 上传素材库数据（materials）</div>
+      <div style="font-size:12px;color:var(--text-muted);margin-bottom:16px;">支持 Excel (.xlsx/.xls) 或 CSV 文件。必须包含以下列：<code style="color:var(--brand-red-2);">img, img_file, category（可选）</code></div>
+
+      <div id="drop-materials" class="upload-drop-zone" ondragover="event.preventDefault();this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="handleDrop(event,'materials')">
+        <div style="font-size:32px;margin-bottom:10px;">🖼️</div>
+        <div style="font-size:13px;color:var(--text-dim);margin-bottom:6px;">拖拽文件到此处，或</div>
+        <label style="cursor:pointer;padding:7px 18px;background:var(--primary-bg);border:1px solid var(--primary-border);border-radius:5px;color:var(--brand-red-2);font-size:12px;">
+          选择文件
+          <input type="file" accept=".xlsx,.xls,.csv" style="display:none;" onchange="handleFileSelect(event,'materials')">
+        </label>
+      </div>
+
+      <div id="preview-materials" style="display:none;margin-top:16px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+          <div style="font-size:13px;color:var(--text);">
+            ✅ 解析成功：<strong id="preview-materials-count" style="color:var(--green);">0</strong> 条记录
+            <span id="preview-materials-new-badge" style="display:none;font-size:11px;margin-left:8px;padding:2px 8px;border-radius:10px;background:rgba(126,201,138,.1);border:1px solid rgba(126,201,138,.2);"></span>
+          </div>
+          <div style="display:flex;gap:8px;">
+            <select id="materials-upload-mode" style="font-size:12px;padding:5px 10px;background:var(--bg-card-alt);border:1px solid var(--border);border-radius:4px;color:var(--text);">
+              <option value="append">追加</option>
+              <option value="overwrite">覆盖</option>
+            </select>
+            <button onclick="uploadMaterialsData()" style="padding:6px 16px;background:var(--brand-red);border:none;border-radius:5px;color:#fff;font-size:12px;cursor:pointer;font-family:inherit;">
+              🚀 发布更新
+            </button>
+          </div>
+        </div>
+        <div style="overflow-x:auto;max-height:180px;overflow-y:auto;border:1px solid var(--border);border-radius:6px;">
+          <table style="width:100%;border-collapse:collapse;font-size:11px;">
+            <thead id="preview-materials-head" style="position:sticky;top:0;background:var(--bg-card);"></thead>
+            <tbody id="preview-materials-body"></tbody>
+          </table>
+        </div>
+      </div>
+      <div id="upload-materials-msg" style="display:none;margin-top:12px;padding:10px 14px;border-radius:6px;font-size:12px;"></div>
+    </div>
+
+    <!-- 操作日志 -->
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:24px;">
+      <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:14px;">📋 操作日志</div>
+      <div id="admin-log" style="font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--text-muted);line-height:1.8;min-height:60px;">
+        <span style="color:var(--text-muted);">暂无操作记录</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 <!-- ===== 模态框 ===== -->
 <div class="modal-overlay" id="modal" onclick="closeModal(event)">
   <div class="modal" id="modalBox">
@@ -1058,11 +1187,12 @@ function posBadgeHTML(pos) {
 function switchTab(tab) {
   document.querySelectorAll('.tab-btn').forEach((b,i) => {
     b.classList.toggle('active',
-      (i===0&&tab==='board')||(i===1&&tab==='library')||(i===2&&tab==='weekly'));
+      (i===0&&tab==='board')||(i===1&&tab==='library')||(i===2&&tab==='weekly')||(i===3&&tab==='admin'));
   });
   document.getElementById('page-board').classList.toggle('active', tab==='board');
   document.getElementById('page-library').classList.toggle('active', tab==='library');
   document.getElementById('page-weekly').classList.toggle('active', tab==='weekly');
+  document.getElementById('page-admin').classList.toggle('active', tab==='admin');
   if (tab === 'board' && !boardInited) initBoard();
   if (tab === 'library' && !libInited) initLibrary();
   if (tab === 'weekly' && !weeklyInited) initWeekly();
@@ -1552,45 +1682,58 @@ document.getElementById('lib-catFilter').addEventListener('change',renderLib);
 document.getElementById('minCount').addEventListener('change',renderLib);
 
 // =========================================================
-// 权限管理模块
+// 权限管理模块（OA Pages Cookie 鉴权）
 // =========================================================
 const AUTH_KEY = 'wgboard_auth_token';
-// 编辑密码（前端静态版）
-const EDITOR_PASSWORD = 'wgboard2024';
-const EDITOR_TOKEN = 'wgboard_static_ok';
+const OA_PAGES_CNAME = 'wegame-board.pages.woa.com';
+const RAW_PREFIX = 'https://git.woa.com/yongtaoyang/wegame/raw/main/';
 
-function getToken() { return sessionStorage.getItem(AUTH_KEY) || ''; }
+function getApiKey() { return sessionStorage.getItem(AUTH_KEY) || ''; }
 
-function setEditMode(on, token) {
+function setEditMode(on, apiKey) {
   if (on) {
     document.body.classList.add('edit-mode');
     document.getElementById('authBtn').classList.add('authed');
     document.getElementById('authBtnIcon').textContent = '🔓';
-    document.getElementById('authBtnText').textContent = '编辑模式';
-    if (token) sessionStorage.setItem(AUTH_KEY, token);
+    document.getElementById('authBtnText').textContent = '管理员';
+    if (apiKey) sessionStorage.setItem(AUTH_KEY, apiKey);
+    // 显示管理Tab
+    const adminTab = document.getElementById('tab-admin');
+    if (adminTab) adminTab.style.display = '';
+    // 更新管理页面显示的Key（脱敏）
+    const keyDisplay = document.getElementById('admin-key-display');
+    if (keyDisplay) {
+      const k = apiKey || getApiKey();
+      keyDisplay.textContent = k ? k.slice(0,18) + '...' + k.slice(-4) : 'Cookie模式';
+    }
   } else {
     document.body.classList.remove('edit-mode');
     document.getElementById('authBtn').classList.remove('authed');
     document.getElementById('authBtnIcon').textContent = '🔒';
     document.getElementById('authBtnText').textContent = '仅浏览';
     sessionStorage.removeItem(AUTH_KEY);
+    const adminTab = document.getElementById('tab-admin');
+    if (adminTab) adminTab.style.display = 'none';
+    if (document.getElementById('page-admin').classList.contains('active')) {
+      switchTab('board');
+    }
   }
 }
 
 async function checkAuthOnLoad() {
-  const token = getToken();
-  // GitHub Pages 静态版：token 即为密码 hash，直接验证
-  if (token === EDITOR_TOKEN) setEditMode(true);
-  else if (token) sessionStorage.removeItem(AUTH_KEY);
+  const key = getApiKey();
+  if (key === 'cookie_mode' || (key && key.startsWith('oa-pages-key-'))) {
+    setEditMode(true, key);
+  } else if (key) {
+    sessionStorage.removeItem(AUTH_KEY);
+  }
 }
 
 function onAuthBtnClick() {
   if (document.body.classList.contains('edit-mode')) {
-    // 已登录 → 退出编辑模式
     setEditMode(false);
-    showToast('🔒 已退出编辑模式');
+    showToast('🔒 已退出管理员模式');
   } else {
-    // 未登录 → 弹出密码框
     openAuthPopup();
   }
 }
@@ -1608,21 +1751,513 @@ function closeAuthPopup() {
 }
 
 async function submitAuth() {
-  const pwd = document.getElementById('authPwdInput').value;
+  const key = document.getElementById('authPwdInput').value.trim();
   const errEl = document.getElementById('authErr');
   const inputEl = document.getElementById('authPwdInput');
   errEl.style.display = 'none';
   inputEl.classList.remove('error');
-  // GitHub Pages 静态版：前端直接对比密码
-  if (pwd === EDITOR_PASSWORD) {
-    setEditMode(true, EDITOR_TOKEN);
+
+  const submitBtn = document.querySelector('.auth-submit-btn');
+  submitBtn.disabled = true;
+  submitBtn.textContent = '验证中...';
+
+  try {
+    // 先尝试 Cookie 鉴权（适用于已登录 pages.woa.com 的用户）
+    const cookieResp = await fetch(`https://pages.woa.com/api/repos/${OA_PAGES_CNAME}`, {
+      credentials: 'include',
+    });
+
+    if (cookieResp.ok) {
+      setEditMode(true, 'cookie_mode');
+      closeAuthPopup();
+      showToast('🔓 管理员模式已激活（Cookie鉴权成功）');
+      return;
+    }
+
+    // Cookie 不可用，尝试 API Key 格式校验
+    if (!key) {
+      inputEl.classList.add('error');
+      errEl.style.display = 'block';
+      errEl.textContent = '请先登录 pages.woa.com，或在下方输入 API Key';
+      return;
+    }
+    if (!key.startsWith('oa-pages-key-')) {
+      inputEl.classList.add('error');
+      errEl.style.display = 'block';
+      errEl.textContent = 'API Key 格式不正确（应以 oa-pages-key- 开头）';
+      return;
+    }
+    // API Key 格式正确，在浏览器端无法直接验证（CORS限制），信任用户输入
+    setEditMode(true, key);
     closeAuthPopup();
-    showToast('🔓 已进入编辑模式，可修改素材分类');
-  } else {
+    showToast('🔓 管理员模式已激活（数据上传需在终端执行）');
+
+  } catch(e) {
     inputEl.classList.add('error');
     errEl.style.display = 'block';
-    errEl.textContent = '密码错误，请重试';
+    errEl.textContent = '验证失败，请确认已连接内网并登录 pages.woa.com';
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = '验证';
   }
+}
+
+// =========================================================
+// 数据管理后台 - 文件上传与解析
+// =========================================================
+let parsedBoardData = null;
+let parsedMaterialsData = null;
+
+function handleDrop(event, type) {
+  event.preventDefault();
+  document.getElementById('drop-' + (type === 'board' ? 'board' : 'materials')).classList.remove('drag-over');
+  const files = event.dataTransfer.files;
+  if (files.length > 0) parseUploadedFile(files[0], type);
+}
+
+function handleFileSelect(event, type) {
+  const file = event.target.files[0];
+  if (file) parseUploadedFile(file, type);
+}
+
+async function parseUploadedFile(file, type) {
+  const ext = file.name.split('.').pop().toLowerCase();
+  addAdminLog(`📂 读取文件：${file.name} (${(file.size/1024).toFixed(1)}KB)`);
+
+  try {
+    if (ext === 'csv') {
+      // CSV 只有一个 sheet，按原有逻辑处理
+      const text = await file.text();
+      const rows = parseCSV(text);
+      if (!rows || rows.length < 2) throw new Error('文件内容为空或格式有误');
+      const headers = rows[0].map(h => String(h).trim().toLowerCase());
+      const data = rows.slice(1).filter(r => r.some(c => c !== '' && c !== null && c !== undefined));
+      if (type === 'board') {
+        parsedBoardData = parseBoardRows(headers, data, null);
+        showBoardPreview(parsedBoardData);
+        addAdminLog(`✅ 解析完成：${parsedBoardData.length} 条投放记录`);
+      } else {
+        parsedMaterialsData = parseMaterialsRows(headers, data);
+        showMaterialsPreview(parsedMaterialsData);
+        addAdminLog(`✅ 解析完成：${parsedMaterialsData.length} 条素材记录`);
+      }
+    } else if (ext === 'xlsx' || ext === 'xls') {
+      const sheets = await parseExcel(file);
+      if (!sheets || !sheets.length) throw new Error('文件内容为空或格式有误');
+
+      // 自动识别 Sheet：名称包含「素材」「material」的为素材库，包含「投放」「board」的为投放数据
+      let boardSheet = null, matSheet = null;
+      for (const s of sheets) {
+        const n = s.name.toLowerCase();
+        if (n.includes('素材') || n.includes('material')) matSheet = s;
+        else if (n.includes('投放') || n.includes('board')) boardSheet = s;
+      }
+      // 若未命中，默认第1个为投放数据，第2个为素材库（与模板顺序一致）
+      if (!boardSheet && !matSheet) {
+        matSheet = sheets[0];
+        boardSheet = sheets.length > 1 ? sheets[1] : null;
+      } else if (!boardSheet && sheets.length > 1) {
+        boardSheet = sheets.find(s => s !== matSheet) || null;
+      } else if (!matSheet && sheets.length > 1) {
+        matSheet = sheets.find(s => s !== boardSheet) || null;
+      }
+
+      // 先解析素材库（投放数据 material_id 映射依赖它）
+      let matMap = null; // { material_id -> imgUrl }
+      if (matSheet && matSheet.rows && matSheet.rows.length >= 2) {
+        const mHeaders = matSheet.rows[0].map(h => String(h).trim().toLowerCase());
+        const mData = matSheet.rows.slice(1).filter(r => r.some(c => c !== '' && c !== null && c !== undefined));
+        parsedMaterialsData = parseMaterialsRows(mHeaders, mData);
+        matMap = buildMatMap(parsedMaterialsData);
+        showMaterialsPreview(parsedMaterialsData);
+        addAdminLog(`✅ 素材库解析完成：${parsedMaterialsData.length} 条（Sheet: ${matSheet.name}）`);
+      }
+
+      // 再解析投放数据（传入 matMap 以支持 material_id 关联）
+      if (boardSheet && boardSheet.rows && boardSheet.rows.length >= 2) {
+        const bHeaders = boardSheet.rows[0].map(h => String(h).trim().toLowerCase());
+        const bData = boardSheet.rows.slice(1).filter(r => r.some(c => c !== '' && c !== null && c !== undefined));
+        parsedBoardData = parseBoardRows(bHeaders, bData, matMap);
+        showBoardPreview(parsedBoardData);
+        addAdminLog(`✅ 投放数据解析完成：${parsedBoardData.length} 条（Sheet: ${boardSheet.name}）`);
+      }
+
+      if (!boardSheet && !matSheet) throw new Error('未能识别有效 Sheet，请检查文件');
+    } else {
+      throw new Error('不支持的文件格式，请使用 .xlsx / .xls / .csv');
+    }
+  } catch(e) {
+    addAdminLog(`❌ 解析失败：${e.message}`);
+    showToast('❌ ' + e.message);
+  }
+}
+
+// 从解析后的素材数据构建 material_id → imgUrl 映射
+function buildMatMap(matsData) {
+  const map = {};
+  matsData.forEach(m => {
+    if (m.material_id && m.img) map[m.material_id] = m.img;
+  });
+  return map;
+}
+
+function parseCSV(text) {
+  const lines = text.trim().split('\n');
+  return lines.map(line => {
+    const result = [];
+    let cur = '', inQ = false;
+    for (let i = 0; i < line.length; i++) {
+      if (line[i] === '"') { inQ = !inQ; }
+      else if (line[i] === ',' && !inQ) { result.push(cur.trim()); cur = ''; }
+      else { cur += line[i]; }
+    }
+    result.push(cur.trim());
+    return result;
+  });
+}
+
+async function parseExcel(file) {
+  // 动态加载 SheetJS
+  if (!window.XLSX) {
+    await new Promise((resolve, reject) => {
+      const s = document.createElement('script');
+      s.src = 'https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js';
+      s.onload = resolve; s.onerror = () => reject(new Error('SheetJS 加载失败，请检查网络'));
+      document.head.appendChild(s);
+    });
+  }
+  const buf = await file.arrayBuffer();
+  const wb = window.XLSX.read(buf, { type: 'array' });
+  // 返回所有 Sheet 数据，格式：[{ name, rows }]
+  return wb.SheetNames.map(name => ({
+    name,
+    rows: window.XLSX.utils.sheet_to_json(wb.Sheets[name], { header: 1, defval: '' }),
+  }));
+}
+
+function parseBoardRows(headers, rows, matMap) {
+  // 字段映射（支持中英文列名）
+  const colMap = {
+    date: ['date', '日期', '投放日期'],
+    copy: ['copy', '文案', '投放文案', '广告语'],
+    position: ['position', '资源位', '资源位置', '投放位置'],
+    type: ['type', '类型', '素材类型', '素材形式'],
+    exposure: ['exposure', '曝光', '曝光uv', '曝光量', '曝光数'],
+    clicks: ['clicks', '点击', '点击uv', '点击量', '点击数'],
+    ctr: ['ctr', '点击率', 'ctr%'],
+    img: ['img', '图片', '素材图', '图片路径', '素材id', 'material_id'],
+  };
+  function findCol(key) {
+    const aliases = colMap[key];
+    return aliases.map(a => headers.indexOf(a)).find(i => i !== -1) ?? -1;
+  }
+  const idx = {};
+  for (const k of Object.keys(colMap)) idx[k] = findCol(k);
+
+  const required = ['date', 'exposure', 'clicks'];
+  for (const r of required) {
+    if (idx[r] === -1) throw new Error(`缺少必要列「${r}」，请检查文件格式`);
+  }
+
+  return rows.map(r => {
+    const imgRaw = idx.img !== -1 ? String(r[idx.img] || '').trim() : '';
+    let imgUrl = '';
+    if (imgRaw) {
+      // 优先从 matMap 中通过 material_id 查找 URL
+      if (matMap && matMap[imgRaw]) {
+        imgUrl = matMap[imgRaw];
+      } else if (imgRaw.startsWith('http')) {
+        imgUrl = imgRaw;
+      } else {
+        imgUrl = RAW_PREFIX + imgRaw;
+      }
+    }
+    const exp = parseFloat(String(r[idx.exposure]).replace(/,/g,'')) || 0;
+    const clk = parseFloat(String(r[idx.clicks]).replace(/,/g,'')) || 0;
+    const ctrRaw = idx.ctr !== -1 ? parseFloat(String(r[idx.ctr]).replace(/%/g,'')) : (exp ? clk/exp*100 : 0);
+    return {
+      date: String(r[idx.date] || '').trim(),
+      copy: idx.copy !== -1 ? String(r[idx.copy] || '').trim() : '',
+      position: idx.position !== -1 ? String(r[idx.position] || '').trim() : '',
+      type: idx.type !== -1 ? String(r[idx.type] || '').trim() : '',
+      exposure: Math.round(exp),
+      clicks: Math.round(clk),
+      ctr: parseFloat(ctrRaw.toFixed(4)),
+      img: imgUrl,
+    };
+  }).filter(d => d.date && d.exposure > 0);
+}
+
+function parseMaterialsRows(headers, rows) {
+  const matIdIdx  = ['material_id', '素材id'].map(k => headers.indexOf(k)).find(i => i !== -1) ?? -1;
+  const imgIdx    = ['img', '图片', '素材图', '图片url'].map(k => headers.indexOf(k)).find(i => i !== -1) ?? -1;
+  const fileIdx   = ['img_file', 'file', '文件名', '本地文件名'].map(k => headers.indexOf(k)).find(i => i !== -1) ?? -1;
+  const catIdx    = ['category', '分类', '游戏方向', '分类/方向'].map(k => headers.indexOf(k)).find(i => i !== -1) ?? -1;
+  const sourceIdx = ['source', '来源'].map(k => headers.indexOf(k)).find(i => i !== -1) ?? -1;
+  if (imgIdx === -1) throw new Error('素材库缺少 img 列');
+  return rows.map(r => {
+    const imgRaw = String(r[imgIdx] || '').trim();
+    const imgUrl = imgRaw && !imgRaw.startsWith('http') ? RAW_PREFIX + imgRaw : imgRaw;
+    const imgFile = fileIdx !== -1 ? String(r[fileIdx] || '').trim() : (imgRaw.split('/').pop() || imgRaw);
+    return {
+      material_id: matIdIdx !== -1 ? String(r[matIdIdx] || '').trim() : '',
+      img: imgUrl,
+      img_file: imgFile,
+      category: catIdx !== -1 ? String(r[catIdx] || '').trim() : '',
+      source: sourceIdx !== -1 ? String(r[sourceIdx] || '').trim() : '',
+    };
+  }).filter(d => d.img);
+}
+
+function showBoardPreview(data) {
+  document.getElementById('preview-board').style.display = '';
+  document.getElementById('preview-board-count').textContent = data.length;
+
+  // 检测有多少条是新数据
+  const existingDates = new Set(BOARD_DATA.map(d => d.date + d.img));
+  const newCount = data.filter(d => !existingDates.has(d.date + d.img)).length;
+  const badge = document.getElementById('preview-board-new-badge');
+  if (newCount > 0) {
+    badge.style.display = '';
+    badge.textContent = `其中 ${newCount} 条为新数据`;
+  }
+
+  const cols = ['date', 'copy', 'position', 'type', 'exposure', 'clicks', 'ctr', 'img'];
+  const colNames = ['日期', '文案', '资源位', '类型', '曝光', '点击', 'CTR', '图片'];
+  document.getElementById('preview-board-head').innerHTML =
+    '<tr>' + colNames.map(c => `<th>${c}</th>`).join('') + '</tr>';
+  document.getElementById('preview-board-body').innerHTML = data.slice(0,20).map(d =>
+    `<tr>${cols.map(c => {
+      if (c === 'img') return `<td><img src="${d[c]}" style="width:48px;height:28px;object-fit:cover;border-radius:2px;" onerror="this.style.opacity=0.2"></td>`;
+      if (c === 'ctr') return `<td>${d[c].toFixed(3)}%</td>`;
+      if (c === 'copy') return `<td style="max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${d[c]}">${d[c]}</td>`;
+      return `<td>${d[c]}</td>`;
+    }).join('')}</tr>`
+  ).join('') + (data.length > 20 ? `<tr><td colspan="8" style="text-align:center;color:var(--text-muted);">...仅预览前20条，共 ${data.length} 条</td></tr>` : '');
+}
+
+function showMaterialsPreview(data) {
+  document.getElementById('preview-materials').style.display = '';
+  document.getElementById('preview-materials-count').textContent = data.length;
+
+  // 去重检测：与现有素材库对比（以 img_file 为键）
+  const existingFiles = new Set(LIB_DATA.map(d => d.img_file || d.img.split('/').pop()));
+  const newCount = data.filter(d => {
+    const fileKey = d.img_file || d.img.split('/').pop();
+    return !existingFiles.has(fileKey);
+  }).length;
+  const skipCount = data.length - newCount;
+  const badge = document.getElementById('preview-materials-new-badge');
+  if (badge) {
+    badge.style.display = '';
+    if (skipCount > 0) {
+      badge.style.color = 'var(--amber)';
+      badge.textContent = `新增 ${newCount} 条 · ${skipCount} 条已存在将跳过`;
+    } else {
+      badge.style.color = 'var(--green)';
+      badge.textContent = `全部 ${newCount} 条为新素材`;
+    }
+  }
+
+  document.getElementById('preview-materials-head').innerHTML =
+    '<tr><th>素材ID</th><th>图片</th><th>img_file</th><th>分类</th><th>状态</th></tr>';
+  document.getElementById('preview-materials-body').innerHTML = data.slice(0,15).map(d => {
+    const fileKey = d.img_file || d.img.split('/').pop();
+    const isNew = !existingFiles.has(fileKey);
+    const statusHtml = isNew
+      ? `<span style="color:var(--green);font-size:10px;">● 新增</span>`
+      : `<span style="color:var(--text-muted);font-size:10px;">○ 已存在(跳过)</span>`;
+    return `<tr>
+      <td style="font-size:10px;color:var(--green);font-family:'Share Tech Mono',monospace;">${d.material_id||'-'}</td>
+      <td><img src="${d.img}" style="width:48px;height:28px;object-fit:cover;border-radius:2px;" onerror="this.style.opacity=0.2"></td>
+      <td style="font-size:10px;color:var(--text-muted);max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${d.img_file}">${d.img_file}</td>
+      <td>${d.category||'-'}</td>
+      <td>${statusHtml}</td>
+    </tr>`;
+  }).join('') + (data.length > 15 ? `<tr><td colspan="5" style="text-align:center;color:var(--text-muted);">...仅预览前15条，共 ${data.length} 条</td></tr>` : '');
+}
+
+async function uploadBoardData() {
+  if (!parsedBoardData || !parsedBoardData.length) { showToast('⚠️ 请先上传并解析文件'); return; }
+  const storedKey = getApiKey();
+
+  const mode = document.getElementById('board-upload-mode').value;
+  const msgEl = document.getElementById('upload-board-msg');
+  msgEl.style.display = '';
+  msgEl.style.background = 'var(--primary-bg)';
+  msgEl.style.border = '1px solid var(--primary-border)';
+  msgEl.style.color = 'var(--brand-red-2)';
+  msgEl.textContent = '⏳ 正在准备数据...';
+  addAdminLog(`📤 开始上传 board_data（模式：${mode === 'append' ? '追加' : '覆盖'}）`);
+
+  try {
+    let finalData;
+    if (mode === 'append') {
+      const resp = await fetch('board_data.json?t=' + Date.now());
+      const existing = await resp.json();
+      const existingKeys = new Set(existing.map(d => d.date + '||' + d.img));
+      const newItems = parsedBoardData.filter(d => !existingKeys.has(d.date + '||' + d.img));
+      finalData = [...existing, ...newItems].sort((a,b) => a.date < b.date ? 1 : -1);
+      addAdminLog(`  → 现有 ${existing.length} 条，新增 ${newItems.length} 条，合并后 ${finalData.length} 条`);
+    } else {
+      finalData = parsedBoardData;
+      addAdminLog(`  → 覆盖模式，共 ${finalData.length} 条`);
+    }
+
+    const jsonStr = JSON.stringify(finalData, null, 0);
+    const payload = JSON.stringify({ files: { 'board_data.json': jsonStr } });
+
+    // 优先尝试 Cookie 鉴权
+    msgEl.textContent = '⏳ 正在上传到 OA Pages...';
+    const uploadResp = await fetch(`https://pages.woa.com/api/sites/${OA_PAGES_CNAME}`, {
+      method: 'PUT',
+      credentials: 'include',
+      headers: { 'Content-Type': 'application/json' },
+      body: payload,
+    });
+
+    if (uploadResp.ok) {
+      msgEl.style.background = 'var(--green-bg)';
+      msgEl.style.border = '1px solid rgba(126,201,138,.3)';
+      msgEl.style.color = 'var(--green)';
+      msgEl.textContent = `✅ 发布成功！共 ${finalData.length} 条记录已更新，刷新页面即可看到最新数据`;
+      addAdminLog(`✅ board_data 发布成功，共 ${finalData.length} 条`);
+      BOARD_DATA = finalData;
+      boardInited = false;
+      document.getElementById('totalRows').textContent = finalData.length;
+      document.getElementById('totalRowsNav').textContent = finalData.length;
+      showToast(`✅ 数据已更新，共 ${finalData.length} 条`);
+    } else if (uploadResp.status === 401 && storedKey && storedKey.startsWith('oa-pages-key-')) {
+      // Cookie失效，但有API Key，生成curl命令
+      showCurlFallback('board_data.json', jsonStr, storedKey, msgEl, finalData.length);
+    } else {
+      const errData = await uploadResp.json().catch(() => ({}));
+      if (uploadResp.status === 401) {
+        // 需要重新登录
+        msgEl.style.background = 'rgba(255,113,50,.08)';
+        msgEl.style.border = '1px solid rgba(255,113,50,.2)';
+        msgEl.style.color = 'var(--secondary)';
+        msgEl.innerHTML = `⚠️ Cookie 已过期。请先 <a href="https://pages.woa.com/admin" target="_blank" style="color:var(--brand-red-2);">登录 pages.woa.com</a>，然后回来重试。<br><small style="color:var(--text-muted)">或输入 API Key 使用终端上传方式。</small>`;
+      } else {
+        throw new Error(errData.message || `上传失败 (${uploadResp.status})`);
+      }
+    }
+  } catch(e) {
+    if (e.message && e.message.includes('Failed to fetch')) {
+      // 网络错误或CORS，尝试提供curl命令
+      if (storedKey && storedKey.startsWith('oa-pages-key-')) {
+        msgEl.style.display = 'none';
+        addAdminLog(`⚠️ 浏览器上传受限，已生成终端命令`);
+      } else {
+        msgEl.style.background = 'rgba(255,113,50,.08)';
+        msgEl.style.border = '1px solid rgba(255,113,50,.2)';
+        msgEl.style.color = 'var(--secondary)';
+        msgEl.textContent = '⚠️ 网络请求被拦截。请先登录 pages.woa.com 后重试，或使用 API Key 模式。';
+      }
+    } else {
+      msgEl.style.background = 'var(--red-bg)';
+      msgEl.style.border = '1px solid rgba(224,82,82,.2)';
+      msgEl.style.color = 'var(--red)';
+      msgEl.textContent = '❌ ' + e.message;
+      addAdminLog(`❌ 上传失败：${e.message}`);
+    }
+  }
+}
+
+function showCurlFallback(filename, jsonStr, apiKey, msgEl, count) {
+  const escaped = jsonStr.replace(/'/g, "'\\''");
+  const curlCmd = `curl -X PUT 'https://pages.woa.com/api/sites/${OA_PAGES_CNAME}' \\\n  -H 'X-Api-Key: ${apiKey}' \\\n  -H 'Content-Type: application/json' \\\n  -d '{"files":{"${filename}":${escaped}}}'`;
+
+  msgEl.style.background = 'rgba(255,113,50,.06)';
+  msgEl.style.border = '1px solid rgba(255,113,50,.2)';
+  msgEl.style.color = 'var(--text)';
+  msgEl.innerHTML = `
+    <div style="margin-bottom:8px;color:var(--secondary);">⚠️ 浏览器CORS限制，请在终端执行以下命令完成上传（共 ${count} 条）：</div>
+    <div style="position:relative;">
+      <pre id="curl-cmd-text" style="background:#0d0d0d;padding:12px;border-radius:5px;font-size:10px;font-family:'Share Tech Mono',monospace;color:var(--text-dim);white-space:pre-wrap;word-break:break-all;max-height:120px;overflow-y:auto;">${curlCmd.replace(/</g,'&lt;')}</pre>
+      <button onclick="copyCurlCmd()" style="position:absolute;top:8px;right:8px;padding:3px 10px;background:var(--primary-bg);border:1px solid var(--primary-border);border-radius:4px;color:var(--brand-red-2);font-size:11px;cursor:pointer;">复制</button>
+    </div>
+  `;
+  addAdminLog(`📋 已生成 curl 命令，请在终端执行`);
+}
+
+function copyCurlCmd() {
+  const text = document.getElementById('curl-cmd-text').textContent;
+  navigator.clipboard.writeText(text).then(() => showToast('✅ 已复制命令到剪贴板'));
+}
+
+async function uploadMaterialsData() {
+  if (!parsedMaterialsData || !parsedMaterialsData.length) { showToast('⚠️ 请先上传并解析文件'); return; }
+  const storedKey = getApiKey();
+
+  const mode = document.getElementById('materials-upload-mode').value;
+  const msgEl = document.getElementById('upload-materials-msg');
+  msgEl.style.display = '';
+  msgEl.style.background = 'var(--primary-bg)';
+  msgEl.style.border = '1px solid var(--primary-border)';
+  msgEl.style.color = 'var(--brand-red-2)';
+  msgEl.textContent = '⏳ 正在准备数据...';
+
+  try {
+    let finalData;
+    if (mode === 'append') {
+      const resp = await fetch('materials.json?t=' + Date.now());
+      const existing = await resp.json();
+      // 以 img_file 为去重键（同名文件不重复上传）
+      const existingFiles = new Set(existing.map(d => d.img_file || d.img.split('/').pop()));
+      const newItems = parsedMaterialsData.filter(d => {
+        const fileKey = d.img_file || d.img.split('/').pop();
+        return !existingFiles.has(fileKey);
+      });
+      const skipCount = parsedMaterialsData.length - newItems.length;
+      finalData = [...existing, ...newItems];
+      addAdminLog(`  → 素材去重：跳过 ${skipCount} 条已存在（按文件名），新增 ${newItems.length} 条，共 ${finalData.length} 条`);
+      if (skipCount > 0) showToast(`⚠️ ${skipCount} 条重复素材已跳过，新增 ${newItems.length} 条`);
+    } else {
+      finalData = parsedMaterialsData;
+    }
+
+    const jsonStr = JSON.stringify(finalData, null, 0);
+    const payload = JSON.stringify({ files: { 'materials.json': jsonStr } });
+
+    msgEl.textContent = '⏳ 正在上传...';
+    const uploadResp = await fetch(`https://pages.woa.com/api/sites/${OA_PAGES_CNAME}`, {
+      method: 'PUT',
+      credentials: 'include',
+      headers: { 'Content-Type': 'application/json' },
+      body: payload,
+    });
+
+    if (uploadResp.ok) {
+      msgEl.style.background = 'var(--green-bg)';
+      msgEl.style.border = '1px solid rgba(126,201,138,.3)';
+      msgEl.style.color = 'var(--green)';
+      msgEl.textContent = `✅ 素材库已更新，共 ${finalData.length} 条，刷新页面生效`;
+      addAdminLog(`✅ materials 发布成功，共 ${finalData.length} 条`);
+      showToast(`✅ 素材库已更新`);
+    } else if (uploadResp.status === 401 && storedKey && storedKey.startsWith('oa-pages-key-')) {
+      showCurlFallback('materials.json', jsonStr, storedKey, msgEl, finalData.length);
+    } else {
+      throw new Error(`上传失败 (${uploadResp.status})`);
+    }
+  } catch(e) {
+    msgEl.style.background = 'var(--red-bg)';
+    msgEl.style.border = '1px solid rgba(224,82,82,.2)';
+    msgEl.style.color = 'var(--red)';
+    msgEl.textContent = '❌ ' + e.message;
+    addAdminLog(`❌ 上传失败：${e.message}`);
+  }
+}
+
+function addAdminLog(msg) {
+  const logEl = document.getElementById('admin-log');
+  if (!logEl) return;
+  const time = new Date().toLocaleTimeString('zh-CN', {hour:'2-digit',minute:'2-digit',second:'2-digit'});
+  const line = document.createElement('div');
+  line.textContent = `[${time}] ${msg}`;
+  if (logEl.querySelector('span')) logEl.innerHTML = '';
+  logEl.appendChild(line);
+  logEl.scrollTop = logEl.scrollHeight;
 }
 
 // =========================================================
