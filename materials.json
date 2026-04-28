@@ -2,12 +2,12 @@
   {
     "img": "imgs/image80.jpg",
     "img_file": "image80.jpg",
-    "total_exposure": 15147,
-    "total_clicks": 358,
-    "avg_ctr": 2.36,
+    "total_exposure": 19145,
+    "total_clicks": 369,
+    "avg_ctr": 1.9274,
     "max_ctr": 2.36,
-    "min_ctr": 2.36,
-    "invest_count": 1,
+    "min_ctr": 0.28,
+    "invest_count": 2,
     "positions": [
       "商店轮播-定投200w"
     ],
@@ -15,16 +15,21 @@
       "静态+动态视频"
     ],
     "copies": [
-      "真•开放世界生存对抗游戏\n预约领枪皮，抽京东卡、5070"
+      "真•开放世界生存对抗游戏\n预约领枪皮，抽京东卡、5070",
+      "真开放世界生存对抗游戏\n预约赢Q币、5070Ti显卡"
     ],
     "dates": [
-      "2025-09-15"
+      "2025-09-15",
+      "2026-04-17"
     ],
     "date_range": [
       "2025-09-15",
-      "2025-09-15"
+      "2026-04-17"
     ],
-    "category": "福利"
+    "category": "福利",
+    "last_date": "2026-04-17",
+    "count": 2,
+    "seq_no": 1
   },
   {
     "img": "imgs/image81.jpg",
@@ -51,7 +56,10 @@
       "2025-09-15",
       "2025-09-15"
     ],
-    "category": "合作"
+    "category": "合作",
+    "last_date": "2025-09-15",
+    "count": 1,
+    "seq_no": 2
   },
   {
     "img": "imgs/image76.jpg",
@@ -80,7 +88,10 @@
       "2025-09-13",
       "2025-09-14"
     ],
-    "category": "建造"
+    "category": "建造",
+    "last_date": "2025-09-14",
+    "count": 2,
+    "seq_no": 3
   },
   {
     "img": "imgs/image78.jpg",
@@ -109,17 +120,20 @@
       "2025-09-14",
       "2025-09-16"
     ],
-    "category": "生存"
+    "category": "生存",
+    "last_date": "2025-09-16",
+    "count": 2,
+    "seq_no": 4
   },
   {
     "img": "imgs/image195.jpg",
     "img_file": "image195.jpg",
-    "total_exposure": 50293,
-    "total_clicks": 705,
-    "avg_ctr": 1.4,
-    "max_ctr": 1.4,
+    "total_exposure": 109975,
+    "total_clicks": 1642,
+    "avg_ctr": 1.4931,
+    "max_ctr": 1.57,
     "min_ctr": 1.4,
-    "invest_count": 1,
+    "invest_count": 2,
     "positions": [
       "首帧轮播-定投100w"
     ],
@@ -127,28 +141,34 @@
       "静态"
     ],
     "copies": [
+      "预约赢5070Ti、千元Q币\nRUST正版玩法授权",
       "全网预约突破3200万\nRUST正版玩法授权"
     ],
     "dates": [
-      "2026-04-03"
+      "2026-04-03",
+      "2026-04-10"
     ],
     "date_range": [
       "2026-04-03",
       "2026-04-03"
     ],
-    "category": "探索"
+    "category": "探索",
+    "last_date": "2026-04-03",
+    "count": 1,
+    "seq_no": 5
   },
   {
     "img": "imgs/image192.jpg",
     "img_file": "image192.jpg",
-    "total_exposure": 543916,
-    "total_clicks": 6757,
-    "avg_ctr": 1.365,
+    "total_exposure": 550003,
+    "total_clicks": 6806,
+    "avg_ctr": 1.2374,
     "max_ctr": 1.6838,
-    "min_ctr": 1.0462,
-    "invest_count": 2,
+    "min_ctr": 0.8,
+    "invest_count": 3,
     "positions": [
-      "商店轮播-全量"
+      "商店轮播-全量",
+      "商店轮播-定投200w"
     ],
     "types": [
       "静态"
@@ -159,13 +179,17 @@
     ],
     "dates": [
       "2026-03-26",
-      "2026-04-04"
+      "2026-04-04",
+      "2026-04-18"
     ],
     "date_range": [
       "2026-03-26",
-      "2026-04-04"
+      "2026-04-18"
     ],
-    "category": "建造"
+    "category": "建造",
+    "last_date": "2026-04-18",
+    "count": 3,
+    "seq_no": 6
   },
   {
     "img": "imgs/image187.jpg",
@@ -199,20 +223,24 @@
       "2026-03-09",
       "2026-03-26"
     ],
-    "category": "合作"
+    "category": "合作",
+    "last_date": "2026-03-26",
+    "count": 4,
+    "seq_no": 7
   },
   {
     "img": "imgs/image189.jpg",
     "img_file": "image189.jpg",
-    "total_exposure": 1880989,
-    "total_clicks": 21762,
-    "avg_ctr": 1.2684,
+    "total_exposure": 1989947,
+    "total_clicks": 23043,
+    "avg_ctr": 1.158,
     "max_ctr": 1.8163,
-    "min_ctr": 1.0329,
-    "invest_count": 6,
+    "min_ctr": 0.69,
+    "invest_count": 11,
     "positions": [
       "商店轮播-全量",
-      "首帧轮播-定投100w"
+      "首帧轮播-定投100w",
+      "商店轮播-定投200w"
     ],
     "types": [
       "静态"
@@ -226,13 +254,21 @@
       "2026-03-26",
       "2026-04-03",
       "2026-04-04",
-      "2026-04-06"
+      "2026-04-06",
+      "2026-04-10",
+      "2026-04-11",
+      "2026-04-17",
+      "2026-04-18",
+      "2026-04-25"
     ],
     "date_range": [
       "2026-03-22",
-      "2026-04-06"
+      "2026-04-25"
     ],
-    "category": "生存"
+    "category": "生存",
+    "last_date": "2026-04-25",
+    "count": 11,
+    "seq_no": 8
   },
   {
     "img": "imgs/image191.jpg",
@@ -260,17 +296,20 @@
       "2026-03-26",
       "2026-04-06"
     ],
-    "category": "对抗"
+    "category": "对抗",
+    "last_date": "2026-04-06",
+    "count": 2,
+    "seq_no": 9
   },
   {
     "img": "imgs/image21.jpg",
     "img_file": "image21.jpg",
-    "total_exposure": 437979,
-    "total_clicks": 2580,
-    "avg_ctr": 1.2347,
+    "total_exposure": 495866,
+    "total_clicks": 3489,
+    "avg_ctr": 0.7036,
     "max_ctr": 2.49,
     "min_ctr": 0.42,
-    "invest_count": 3,
+    "invest_count": 4,
     "positions": [
       "商店轮播-全量",
       "首帧轮播-定投100w"
@@ -280,29 +319,34 @@
       "静态"
     ],
     "copies": [
+      "RUST正版玩法授权！\n领地攻防 生存对抗",
       "RUST正版玩法授权\n9月19日登岛测试，立即报名！",
       "RUST正版玩法授权\n9月大规模测试，PC抢先招募中"
     ],
     "dates": [
       "2025-08-04",
       "2025-08-06",
-      "2025-08-11"
+      "2025-08-11",
+      "2026-04-10"
     ],
     "date_range": [
       "2025-08-04",
       "2025-08-11"
     ],
-    "category": "建造"
+    "category": "建造",
+    "last_date": "2025-08-11",
+    "count": 3,
+    "seq_no": 10
   },
   {
     "img": "imgs/image6.jpg",
     "img_file": "image6.jpg",
-    "total_exposure": 609949,
-    "total_clicks": 5778,
-    "avg_ctr": 1.137,
+    "total_exposure": 615857,
+    "total_clicks": 5806,
+    "avg_ctr": 0.9428,
     "max_ctr": 2.08,
-    "min_ctr": 0.7978,
-    "invest_count": 5,
+    "min_ctr": 0.47,
+    "invest_count": 6,
     "positions": [
       "商店轮播-全量",
       "商店轮播-定投200w",
@@ -317,30 +361,35 @@
       "标题：全球顶流生存对抗游戏\n副标：立即预约！领限定枪皮抽5070",
       "RUST正版玩法授权\n9月19日登岛测试，立即报名！",
       "RUST正版玩法授权\n9月大规模测试，PC抢先招募中",
-      "全球顶流生存对抗游戏9月测试\nPC抢先招募，预约领限定枪皮"
+      "全球顶流生存对抗游戏9月测试\nPC抢先招募，预约领限定枪皮",
+      "开放世界 射击生存对抗\n预约赢Q币、5070Ti显卡"
     ],
     "dates": [
       "2025-07-05",
       "2025-07-12",
       "2025-07-15",
       "2025-08-06",
-      "2025-08-11"
+      "2025-08-11",
+      "2026-04-17"
     ],
     "date_range": [
       "2025-07-05",
-      "2025-08-11"
+      "2026-04-17"
     ],
-    "category": "武器"
+    "category": "武器",
+    "last_date": "2026-04-17",
+    "count": 6,
+    "seq_no": 11
   },
   {
     "img": "imgs/image175.jpg",
     "img_file": "image175.jpg",
-    "total_exposure": 4308258,
-    "total_clicks": 42604,
-    "avg_ctr": 1.1352,
+    "total_exposure": 4411418,
+    "total_clicks": 43867,
+    "avg_ctr": 0.9944,
     "max_ctr": 1.83,
-    "min_ctr": 0.7858,
-    "invest_count": 14,
+    "min_ctr": 0.5,
+    "invest_count": 19,
     "positions": [
       "首帧轮播-全量",
       "商店轮播-定投200w",
@@ -352,12 +401,14 @@
       "静态"
     ],
     "copies": [
+      "没见过这么野的生存对抗游戏\n立即参与测试，赢千元Q币",
+      "开放世界，射击生存对抗\n预约赢5070Ti、千元Q币",
       "没见过这么野的生存对抗游戏\n测试火热进行中，预约赢Q币",
       "预约赢5070显卡、千元Q币\nRUST正版玩法授权",
-      "开放世界，射击生存对抗\n预约赢5070Ti、千元Q币",
-      "没见过这么野的生存对抗游戏\n立即参与测试，赢千元Q币",
+      "立即抢号，参与终极测试！\n赢5070Ti显卡、千元Q币",
       "RUST正版玩法授权\n全新体验，沉浸式生存对抗！",
-      "立即抢号，参与终极测试！\n赢5070Ti显卡、千元Q币"
+      "RUST正版玩法授权\n预约赢Q币、5070Ti显卡",
+      "预约赢5070Ti、千元Q币\nRUST正版授权生存对抗游戏"
     ],
     "dates": [
       "2026-02-27",
@@ -373,20 +424,28 @@
       "2026-03-26",
       "2026-04-03",
       "2026-04-04",
-      "2026-04-06"
+      "2026-04-06",
+      "2026-04-10",
+      "2026-04-11",
+      "2026-04-17",
+      "2026-04-18",
+      "2026-04-25"
     ],
     "date_range": [
       "2026-02-27",
-      "2026-04-06"
+      "2026-04-25"
     ],
-    "category": "探索"
+    "category": "探索",
+    "last_date": "2026-04-25",
+    "count": 19,
+    "seq_no": 12
   },
   {
     "img": "imgs/image15.png",
     "img_file": "image15.png",
     "total_exposure": 903653,
     "total_clicks": 8672,
-    "avg_ctr": 0.96,
+    "avg_ctr": 0.93,
     "max_ctr": 1.11,
     "min_ctr": 1.11,
     "invest_count": 2,
@@ -409,7 +468,10 @@
       "2025-07-23",
       "2025-09-07"
     ],
-    "category": "合作"
+    "category": "合作",
+    "last_date": "2025-09-07",
+    "count": 2,
+    "seq_no": 13
   },
   {
     "img": "imgs/image79.jpg",
@@ -441,14 +503,17 @@
       "2025-09-14",
       "2025-09-20"
     ],
-    "category": "生存"
+    "category": "生存",
+    "last_date": "2025-09-20",
+    "count": 4,
+    "seq_no": 14
   },
   {
     "img": "imgs/image194.jpg",
     "img_file": "image194.jpg",
     "total_exposure": 483821,
     "total_clicks": 4629,
-    "avg_ctr": 1.0781,
+    "avg_ctr": 1.078,
     "max_ctr": 1.23,
     "min_ctr": 0.9261,
     "invest_count": 2,
@@ -471,7 +536,10 @@
       "2026-04-03",
       "2026-04-06"
     ],
-    "category": "对抗"
+    "category": "对抗",
+    "last_date": "2026-04-06",
+    "count": 2,
+    "seq_no": 15
   },
   {
     "img": "imgs/image9.jpg",
@@ -502,7 +570,10 @@
       "2025-07-12",
       "2025-08-11"
     ],
-    "category": "对抗"
+    "category": "对抗",
+    "last_date": "2025-08-11",
+    "count": 3,
+    "seq_no": 16
   },
   {
     "img": "imgs/image106.jpg",
@@ -529,7 +600,10 @@
       "2025-10-18",
       "2025-10-18"
     ],
-    "category": "生存"
+    "category": "生存",
+    "last_date": "2025-10-18",
+    "count": 1,
+    "seq_no": 17
   },
   {
     "img": "imgs/image107.jpg",
@@ -556,7 +630,10 @@
       "2025-10-18",
       "2025-10-18"
     ],
-    "category": "对抗"
+    "category": "对抗",
+    "last_date": "2025-10-18",
+    "count": 1,
+    "seq_no": 18
   },
   {
     "img": "imgs/image193.jpg",
@@ -585,17 +662,20 @@
       "2026-04-03",
       "2026-04-04"
     ],
-    "category": "对抗"
+    "category": "对抗",
+    "last_date": "2026-04-04",
+    "count": 2,
+    "seq_no": 19
   },
   {
     "img": "imgs/image46.png",
     "img_file": "image46.png",
-    "total_exposure": 4767883,
-    "total_clicks": 41552,
-    "avg_ctr": 1.0183,
+    "total_exposure": 4774719,
+    "total_clicks": 41614,
+    "avg_ctr": 0.8715,
     "max_ctr": 2.5097,
     "min_ctr": 0.52,
-    "invest_count": 17,
+    "invest_count": 18,
     "positions": [
       "首帧轮播-全量",
       "商店轮播-全量",
@@ -614,7 +694,8 @@
       "活下来！然后成为别人的恶梦​\n登岛测试，立即报名！",
       "开放世界 生存对抗\n预约领枪皮，抽京东卡、5070",
       "全网两千万预约达成！\n预约领枪皮，抽京东卡、5070",
-      "活下来！然后成为别人的恶梦​\n9月登岛测试，立即报名！"
+      "活下来！然后成为别人的恶梦​\n9月登岛测试，立即报名！",
+      "活下来！然后成为别人的噩梦\n预约赢Q币、5070Ti显卡"
     ],
     "dates": [
       "2025-08-22",
@@ -632,13 +713,17 @@
       "2025-09-19",
       "2025-09-20",
       "2025-09-21",
-      "2025-09-22"
+      "2025-09-22",
+      "2026-04-18"
     ],
     "date_range": [
       "2025-08-22",
-      "2025-09-22"
+      "2026-04-18"
     ],
-    "category": "趣味"
+    "category": "趣味",
+    "last_date": "2026-04-18",
+    "count": 18,
+    "seq_no": 20
   },
   {
     "img": "imgs/image75.jpg",
@@ -673,7 +758,10 @@
       "2025-09-13",
       "2025-09-22"
     ],
-    "category": "对抗"
+    "category": "对抗",
+    "last_date": "2025-09-22",
+    "count": 7,
+    "seq_no": 21
   },
   {
     "img": "imgs/image110.jpg",
@@ -700,7 +788,10 @@
       "2025-10-21",
       "2025-10-21"
     ],
-    "category": "对抗"
+    "category": "对抗",
+    "last_date": "2025-10-21",
+    "count": 1,
+    "seq_no": 22
   },
   {
     "img": "imgs/image108.jpg",
@@ -727,7 +818,10 @@
       "2025-10-21",
       "2025-10-21"
     ],
-    "category": "生存"
+    "category": "生存",
+    "last_date": "2025-10-21",
+    "count": 1,
+    "seq_no": 23
   },
   {
     "img": "imgs/image44.png",
@@ -786,7 +880,10 @@
       "2025-08-22",
       "2025-10-09"
     ],
-    "category": "探索"
+    "category": "探索",
+    "last_date": "2025-10-09",
+    "count": 24,
+    "seq_no": 24
   },
   {
     "img": "imgs/image57.jpg",
@@ -847,14 +944,17 @@
       "2025-08-30",
       "2025-10-09"
     ],
-    "category": "对抗"
+    "category": "对抗",
+    "last_date": "2025-10-09",
+    "count": 26,
+    "seq_no": 25
   },
   {
     "img": "imgs/image28.png",
     "img_file": "image28.png",
     "total_exposure": 2555608,
     "total_clicks": 19188,
-    "avg_ctr": 0.751,
+    "avg_ctr": 0.9007,
     "max_ctr": 2.32,
     "min_ctr": 0.44,
     "invest_count": 10,
@@ -880,18 +980,21 @@
       "2025-08-06",
       "2025-08-09",
       "2025-08-11",
-      "2025-08-24",
-      "2025-08-29",
-      "2025-08-30",
+      "2025-08-13",
       "2025-08-16",
       "2025-08-22",
-      "2025-08-13"
+      "2025-08-24",
+      "2025-08-29",
+      "2025-08-30"
     ],
     "date_range": [
       "2025-08-04",
       "2025-08-30"
     ],
-    "category": "武器"
+    "category": "武器",
+    "last_date": "2025-08-30",
+    "count": 10,
+    "seq_no": 26
   },
   {
     "img": "imgs/image77.jpg",
@@ -936,7 +1039,10 @@
       "2025-09-13",
       "2025-10-09"
     ],
-    "category": "对抗"
+    "category": "对抗",
+    "last_date": "2025-10-09",
+    "count": 13,
+    "seq_no": 27
   },
   {
     "img": "imgs/image197.jpg",
@@ -963,7 +1069,10 @@
       "2026-04-06",
       "2026-04-06"
     ],
-    "category": "对抗"
+    "category": "对抗",
+    "last_date": "2026-04-06",
+    "count": 1,
+    "seq_no": 28
   },
   {
     "img": "imgs/image18.jpg",
@@ -990,7 +1099,10 @@
       "2025-07-25",
       "2025-07-25"
     ],
-    "category": "合作"
+    "category": "合作",
+    "last_date": "2025-07-25",
+    "count": 1,
+    "seq_no": 29
   },
   {
     "img": "imgs/image173.jpg",
@@ -1017,7 +1129,10 @@
       "2026-02-14",
       "2026-02-14"
     ],
-    "category": "对抗"
+    "category": "对抗",
+    "last_date": "2026-02-14",
+    "count": 1,
+    "seq_no": 30
   },
   {
     "img": "imgs/image183.jpg",
@@ -1051,7 +1166,10 @@
       "2026-03-07",
       "2026-03-24"
     ],
-    "category": "合作"
+    "category": "合作",
+    "last_date": "2026-03-24",
+    "count": 4,
+    "seq_no": 31
   },
   {
     "img": "imgs/image161.jpg",
@@ -1089,14 +1207,17 @@
       "2026-02-04",
       "2026-03-17"
     ],
-    "category": "建造"
+    "category": "建造",
+    "last_date": "2026-03-17",
+    "count": 8,
+    "seq_no": 32
   },
   {
     "img": "imgs/image17.jpg",
     "img_file": "image17.jpg",
     "total_exposure": 1245135,
     "total_clicks": 10254,
-    "avg_ctr": 0.824,
+    "avg_ctr": 0.7667,
     "max_ctr": 1.16,
     "min_ctr": 0.72,
     "invest_count": 3,
@@ -1114,14 +1235,17 @@
     ],
     "dates": [
       "2025-07-23",
-      "2025-09-07",
-      "2025-08-04"
+      "2025-08-04",
+      "2025-09-07"
     ],
     "date_range": [
       "2025-07-23",
       "2025-09-07"
     ],
-    "category": "对抗"
+    "category": "对抗",
+    "last_date": "2025-09-07",
+    "count": 3,
+    "seq_no": 33
   },
   {
     "img": "imgs/image190.jpg",
@@ -1150,7 +1274,10 @@
       "2026-03-24",
       "2026-04-04"
     ],
-    "category": "拆家"
+    "category": "拆家",
+    "last_date": "2026-04-04",
+    "count": 2,
+    "seq_no": 34
   },
   {
     "img": "imgs/image162.jpg",
@@ -1177,7 +1304,10 @@
       "2026-02-05",
       "2026-02-05"
     ],
-    "category": "建造"
+    "category": "建造",
+    "last_date": "2026-02-05",
+    "count": 1,
+    "seq_no": 35
   },
   {
     "img": "imgs/image196.jpg",
@@ -1204,14 +1334,17 @@
       "2026-04-04",
       "2026-04-04"
     ],
-    "category": "福利"
+    "category": "福利",
+    "last_date": "2026-04-04",
+    "count": 1,
+    "seq_no": 36
   },
   {
     "img": "imgs/image11.jpg",
     "img_file": "image11.jpg",
     "total_exposure": 12346925,
     "total_clicks": 104822,
-    "avg_ctr": 0.849,
+    "avg_ctr": 0.9129,
     "max_ctr": 2.2396,
     "min_ctr": 0.45,
     "invest_count": 37,
@@ -1253,8 +1386,12 @@
       "2025-07-23",
       "2025-07-25",
       "2025-08-09",
+      "2025-08-13",
       "2025-08-16",
       "2025-08-22",
+      "2025-08-24",
+      "2025-08-29",
+      "2025-08-30",
       "2025-09-03",
       "2025-09-04",
       "2025-09-06",
@@ -1278,17 +1415,16 @@
       "2025-10-04",
       "2025-10-05",
       "2025-10-06",
-      "2025-10-09",
-      "2025-08-24",
-      "2025-08-29",
-      "2025-08-30",
-      "2025-08-13"
+      "2025-10-09"
     ],
     "date_range": [
       "2025-07-05",
       "2025-10-09"
     ],
-    "category": "合作"
+    "category": "合作",
+    "last_date": "2025-10-09",
+    "count": 37,
+    "seq_no": 37
   },
   {
     "img": "imgs/image188.jpg",
@@ -1316,7 +1452,10 @@
       "2026-03-22",
       "2026-03-24"
     ],
-    "category": "拆家"
+    "category": "拆家",
+    "last_date": "2026-03-24",
+    "count": 2,
+    "seq_no": 38
   },
   {
     "img": "imgs/image5.jpg",
@@ -1347,7 +1486,10 @@
       "2025-07-05",
       "2025-07-15"
     ],
-    "category": "趣味"
+    "category": "趣味",
+    "last_date": "2025-07-15",
+    "count": 3,
+    "seq_no": 39
   },
   {
     "img": "imgs/image100.jpg",
@@ -1389,7 +1531,10 @@
       "2025-10-06",
       "2025-10-21"
     ],
-    "category": "趣味"
+    "category": "趣味",
+    "last_date": "2025-10-21",
+    "count": 9,
+    "seq_no": 40
   },
   {
     "img": "imgs/image60.jpg",
@@ -1416,7 +1561,10 @@
       "2025-09-03",
       "2025-09-03"
     ],
-    "category": "武器"
+    "category": "武器",
+    "last_date": "2025-09-03",
+    "count": 1,
+    "seq_no": 41
   },
   {
     "img": "imgs/image105.jpg",
@@ -1444,7 +1592,10 @@
       "2025-10-17",
       "2025-10-27"
     ],
-    "category": "趣味"
+    "category": "趣味",
+    "last_date": "2025-10-27",
+    "count": 2,
+    "seq_no": 42
   },
   {
     "img": "imgs/image160.jpg",
@@ -1477,7 +1628,10 @@
       "2026-02-04",
       "2026-02-13"
     ],
-    "category": "合作"
+    "category": "合作",
+    "last_date": "2026-02-13",
+    "count": 3,
+    "seq_no": 43
   },
   {
     "img": "imgs/image198.jpg",
@@ -1504,7 +1658,10 @@
       "2026-04-06",
       "2026-04-06"
     ],
-    "category": "合作"
+    "category": "合作",
+    "last_date": "2026-04-06",
+    "count": 1,
+    "seq_no": 44
   },
   {
     "img": "imgs/image31.jpg",
@@ -1539,7 +1696,10 @@
       "2025-07-05",
       "2026-03-22"
     ],
-    "category": "合作"
+    "category": "合作",
+    "last_date": "2026-03-22",
+    "count": 5,
+    "seq_no": 45
   },
   {
     "img": "imgs/image180.jpg",
@@ -1566,15 +1726,18 @@
       "2026-03-06",
       "2026-03-06"
     ],
-    "category": "探索"
+    "category": "探索",
+    "last_date": "2026-03-06",
+    "count": 1,
+    "seq_no": 46
   },
   {
     "img": "imgs/image10.jpg",
     "img_file": "image10.jpg",
     "total_exposure": 3044903,
     "total_clicks": 24995,
-    "avg_ctr": 0.821,
-    "max_ctr": 1.19,
+    "avg_ctr": 0.9618,
+    "max_ctr": 2.27,
     "min_ctr": 0.45,
     "invest_count": 12,
     "positions": [
@@ -1600,19 +1763,22 @@
       "2025-07-15",
       "2025-07-19",
       "2025-07-23",
-      "2025-08-16",
-      "2025-08-22",
       "2025-08-04",
       "2025-08-06",
       "2025-08-09",
       "2025-08-11",
-      "2025-08-13"
+      "2025-08-13",
+      "2025-08-16",
+      "2025-08-22"
     ],
     "date_range": [
       "2025-07-05",
       "2025-08-22"
     ],
-    "category": "探索"
+    "category": "探索",
+    "last_date": "2025-08-22",
+    "count": 12,
+    "seq_no": 47
   },
   {
     "img": "imgs/image7.jpg",
@@ -1643,7 +1809,10 @@
       "2025-07-05",
       "2025-07-15"
     ],
-    "category": "探索"
+    "category": "探索",
+    "last_date": "2025-07-15",
+    "count": 3,
+    "seq_no": 48
   },
   {
     "img": "imgs/image90.jpg",
@@ -1679,7 +1848,10 @@
       "2025-10-02",
       "2025-10-18"
     ],
-    "category": "对抗"
+    "category": "对抗",
+    "last_date": "2025-10-18",
+    "count": 7,
+    "seq_no": 49
   },
   {
     "img": "imgs/image150.jpg",
@@ -1706,7 +1878,10 @@
       "2026-01-26",
       "2026-01-26"
     ],
-    "category": "对抗"
+    "category": "对抗",
+    "last_date": "2026-01-26",
+    "count": 1,
+    "seq_no": 50
   },
   {
     "img": "imgs/image84.jpg",
@@ -1749,7 +1924,10 @@
       "2025-09-21",
       "2025-10-09"
     ],
-    "category": "武器"
+    "category": "武器",
+    "last_date": "2025-10-09",
+    "count": 12,
+    "seq_no": 51
   },
   {
     "img": "imgs/image179.jpg",
@@ -1776,7 +1954,10 @@
       "2026-03-06",
       "2026-03-06"
     ],
-    "category": "对抗"
+    "category": "对抗",
+    "last_date": "2026-03-06",
+    "count": 1,
+    "seq_no": 52
   },
   {
     "img": "imgs/image34.jpg",
@@ -1803,7 +1984,10 @@
       "2025-08-13",
       "2025-08-13"
     ],
-    "category": "对抗"
+    "category": "对抗",
+    "last_date": "2025-08-13",
+    "count": 1,
+    "seq_no": 53
   },
   {
     "img": "imgs/image181.jpg",
@@ -1833,7 +2017,10 @@
       "2026-03-06",
       "2026-03-17"
     ],
-    "category": "武器"
+    "category": "武器",
+    "last_date": "2026-03-17",
+    "count": 3,
+    "seq_no": 54
   },
   {
     "img": "imgs/image13.jpg",
@@ -1868,7 +2055,10 @@
       "2025-07-05",
       "2025-07-25"
     ],
-    "category": "趣味"
+    "category": "趣味",
+    "last_date": "2025-07-25",
+    "count": 5,
+    "seq_no": 55
   },
   {
     "img": "imgs/image112.jpg",
@@ -1895,7 +2085,10 @@
       "2025-10-25",
       "2025-10-25"
     ],
-    "category": "对抗"
+    "category": "对抗",
+    "last_date": "2025-10-25",
+    "count": 1,
+    "seq_no": 56
   },
   {
     "img": "imgs/image159.jpg",
@@ -1922,7 +2115,10 @@
       "2026-02-03",
       "2026-02-03"
     ],
-    "category": "对抗"
+    "category": "对抗",
+    "last_date": "2026-02-03",
+    "count": 1,
+    "seq_no": 57
   },
   {
     "img": "imgs/image89.jpg",
@@ -1953,7 +2149,10 @@
       "2025-09-28",
       "2025-10-11"
     ],
-    "category": "趣味"
+    "category": "趣味",
+    "last_date": "2025-10-11",
+    "count": 3,
+    "seq_no": 58
   },
   {
     "img": "imgs/image101.jpg",
@@ -2008,7 +2207,10 @@
       "2025-10-02",
       "2026-01-04"
     ],
-    "category": "趣味"
+    "category": "趣味",
+    "last_date": "2026-01-04",
+    "count": 22,
+    "seq_no": 59
   },
   {
     "img": "imgs/image63.jpg",
@@ -2041,7 +2243,10 @@
       "2025-09-04",
       "2025-09-07"
     ],
-    "category": "福利"
+    "category": "福利",
+    "last_date": "2025-09-07",
+    "count": 3,
+    "seq_no": 60
   },
   {
     "img": "imgs/image87.jpg",
@@ -2068,7 +2273,10 @@
       "2025-09-27",
       "2025-09-27"
     ],
-    "category": "趣味"
+    "category": "趣味",
+    "last_date": "2025-09-27",
+    "count": 1,
+    "seq_no": 61
   },
   {
     "img": "imgs/image111.jpg",
@@ -2095,7 +2303,10 @@
       "2025-10-25",
       "2025-10-25"
     ],
-    "category": "对抗"
+    "category": "对抗",
+    "last_date": "2025-10-25",
+    "count": 1,
+    "seq_no": 62
   },
   {
     "img": "imgs/image182.jpg",
@@ -2122,14 +2333,17 @@
       "2026-03-07",
       "2026-03-07"
     ],
-    "category": "趣味"
+    "category": "趣味",
+    "last_date": "2026-03-07",
+    "count": 1,
+    "seq_no": 63
   },
   {
     "img": "imgs/image148.jpg",
     "img_file": "image148.jpg",
     "total_exposure": 6608670,
     "total_clicks": 53166,
-    "avg_ctr": 0.8181,
+    "avg_ctr": 0.818,
     "max_ctr": 0.9679,
     "min_ctr": 0.6,
     "invest_count": 12,
@@ -2171,7 +2385,10 @@
       "2026-01-25",
       "2026-03-08"
     ],
-    "category": "建造"
+    "category": "建造",
+    "last_date": "2026-03-08",
+    "count": 12,
+    "seq_no": 64
   },
   {
     "img": "imgs/image122.jpg",
@@ -2277,7 +2494,10 @@
       "2025-09-28",
       "2026-03-17"
     ],
-    "category": "探索"
+    "category": "探索",
+    "last_date": "2026-03-17",
+    "count": 53,
+    "seq_no": 65
   },
   {
     "img": "imgs/image109.jpg",
@@ -2357,7 +2577,10 @@
       "2025-10-21",
       "2026-03-06"
     ],
-    "category": "合作"
+    "category": "合作",
+    "last_date": "2026-03-06",
+    "count": 32,
+    "seq_no": 66
   },
   {
     "img": "imgs/image121.jpg",
@@ -2384,7 +2607,10 @@
       "2025-11-21",
       "2025-11-21"
     ],
-    "category": "合作"
+    "category": "合作",
+    "last_date": "2025-11-21",
+    "count": 1,
+    "seq_no": 67
   },
   {
     "img": "imgs/image138.jpg",
@@ -2469,7 +2695,10 @@
       "2025-10-04",
       "2026-02-07"
     ],
-    "category": "拆家"
+    "category": "拆家",
+    "last_date": "2026-02-07",
+    "count": 39,
+    "seq_no": 68
   },
   {
     "img": "imgs/image61.jpg",
@@ -2496,7 +2725,10 @@
       "2025-09-03",
       "2025-09-03"
     ],
-    "category": "建造"
+    "category": "建造",
+    "last_date": "2025-09-03",
+    "count": 1,
+    "seq_no": 69
   },
   {
     "img": "imgs/image113.jpg",
@@ -2523,7 +2755,10 @@
       "2025-10-27",
       "2025-10-27"
     ],
-    "category": "对抗"
+    "category": "对抗",
+    "last_date": "2025-10-27",
+    "count": 1,
+    "seq_no": 70
   },
   {
     "img": "imgs/image176.jpg",
@@ -2550,7 +2785,10 @@
       "2026-03-03",
       "2026-03-03"
     ],
-    "category": "合作"
+    "category": "合作",
+    "last_date": "2026-03-03",
+    "count": 1,
+    "seq_no": 71
   },
   {
     "img": "imgs/image94.jpg",
@@ -2588,7 +2826,10 @@
       "2025-10-04",
       "2025-10-18"
     ],
-    "category": "合作"
+    "category": "合作",
+    "last_date": "2025-10-18",
+    "count": 7,
+    "seq_no": 72
   },
   {
     "img": "imgs/image102.jpg",
@@ -2654,7 +2895,10 @@
       "2025-10-12",
       "2026-03-12"
     ],
-    "category": "生存"
+    "category": "生存",
+    "last_date": "2026-03-12",
+    "count": 26,
+    "seq_no": 73
   },
   {
     "img": "imgs/image72.png",
@@ -2681,7 +2925,10 @@
       "2025-09-09",
       "2025-09-09"
     ],
-    "category": "趣味"
+    "category": "趣味",
+    "last_date": "2025-09-09",
+    "count": 1,
+    "seq_no": 74
   },
   {
     "img": "imgs/image119.jpg",
@@ -2719,7 +2966,10 @@
       "2025-11-08",
       "2026-01-04"
     ],
-    "category": "拆家"
+    "category": "拆家",
+    "last_date": "2026-01-04",
+    "count": 9,
+    "seq_no": 75
   },
   {
     "img": "imgs/image86.jpg",
@@ -2727,7 +2977,7 @@
     "total_exposure": 476218,
     "total_clicks": 4319,
     "avg_ctr": 0.771,
-    "max_ctr": 1,
+    "max_ctr": 1.0,
     "min_ctr": 0.56,
     "invest_count": 4,
     "positions": [
@@ -2751,14 +3001,17 @@
       "2025-09-27",
       "2025-10-12"
     ],
-    "category": "建造"
+    "category": "建造",
+    "last_date": "2025-10-12",
+    "count": 4,
+    "seq_no": 76
   },
   {
     "img": "imgs/image117.jpg",
     "img_file": "image117.jpg",
     "total_exposure": 4621303,
     "total_clicks": 34386,
-    "avg_ctr": 0.7652,
+    "avg_ctr": 0.7651,
     "max_ctr": 1.58,
     "min_ctr": 0.497,
     "invest_count": 22,
@@ -2814,7 +3067,10 @@
       "2025-11-08",
       "2026-03-05"
     ],
-    "category": "趣味"
+    "category": "趣味",
+    "last_date": "2026-03-05",
+    "count": 22,
+    "seq_no": 77
   },
   {
     "img": "imgs/image118.jpg",
@@ -2853,14 +3109,17 @@
       "2025-11-08",
       "2025-12-28"
     ],
-    "category": "探索"
+    "category": "探索",
+    "last_date": "2025-12-28",
+    "count": 10,
+    "seq_no": 78
   },
   {
     "img": "imgs/image54.png",
     "img_file": "image54.png",
     "total_exposure": 1712841,
     "total_clicks": 13027,
-    "avg_ctr": 0.761,
+    "avg_ctr": 0.7579,
     "max_ctr": 0.84,
     "min_ctr": 0.69,
     "invest_count": 5,
@@ -2877,17 +3136,20 @@
       "RUST玩法授权，领预约豪礼\n9月19日登岛测试，立即报名！"
     ],
     "dates": [
+      "2025-08-16",
+      "2025-08-22",
       "2025-08-24",
       "2025-08-29",
-      "2025-08-30",
-      "2025-08-16",
-      "2025-08-22"
+      "2025-08-30"
     ],
     "date_range": [
       "2025-08-16",
       "2025-08-30"
     ],
-    "category": "对抗"
+    "category": "对抗",
+    "last_date": "2025-08-30",
+    "count": 5,
+    "seq_no": 79
   },
   {
     "img": "imgs/image1.jpg",
@@ -2920,7 +3182,10 @@
       "2025-07-05",
       "2025-07-19"
     ],
-    "category": "对抗"
+    "category": "对抗",
+    "last_date": "2025-07-19",
+    "count": 4,
+    "seq_no": 80
   },
   {
     "img": "imgs/image70.jpg",
@@ -2947,7 +3212,10 @@
       "2025-09-07",
       "2025-09-07"
     ],
-    "category": "武器"
+    "category": "武器",
+    "last_date": "2025-09-07",
+    "count": 1,
+    "seq_no": 81
   },
   {
     "img": "imgs/image71.jpg",
@@ -2974,7 +3242,10 @@
       "2025-09-09",
       "2025-09-09"
     ],
-    "category": "趣味"
+    "category": "趣味",
+    "last_date": "2025-09-09",
+    "count": 1,
+    "seq_no": 82
   },
   {
     "img": "imgs/image127.jpg",
@@ -3042,7 +3313,10 @@
       "2025-12-18",
       "2026-03-09"
     ],
-    "category": "合作"
+    "category": "合作",
+    "last_date": "2026-03-09",
+    "count": 23,
+    "seq_no": 83
   },
   {
     "img": "imgs/image42.jpg",
@@ -3069,7 +3343,10 @@
       "2025-08-16",
       "2025-08-16"
     ],
-    "category": "探索"
+    "category": "探索",
+    "last_date": "2025-08-16",
+    "count": 1,
+    "seq_no": 84
   },
   {
     "img": "imgs/image47.png",
@@ -3096,7 +3373,10 @@
       "2025-08-22",
       "2025-08-22"
     ],
-    "category": "生存"
+    "category": "生存",
+    "last_date": "2025-08-22",
+    "count": 1,
+    "seq_no": 85
   },
   {
     "img": "imgs/image73.png",
@@ -3123,7 +3403,10 @@
       "2025-09-09",
       "2025-09-09"
     ],
-    "category": "合作"
+    "category": "合作",
+    "last_date": "2025-09-09",
+    "count": 1,
+    "seq_no": 86
   },
   {
     "img": "imgs/image74.png",
@@ -3150,7 +3433,10 @@
       "2025-09-09",
       "2025-09-09"
     ],
-    "category": "趣味"
+    "category": "趣味",
+    "last_date": "2025-09-09",
+    "count": 1,
+    "seq_no": 87
   },
   {
     "img": "imgs/image120.jpg",
@@ -3216,7 +3502,10 @@
       "2025-11-15",
       "2026-02-27"
     ],
-    "category": "探索"
+    "category": "探索",
+    "last_date": "2026-02-27",
+    "count": 24,
+    "seq_no": 88
   },
   {
     "img": "imgs/image36.jpg",
@@ -3243,7 +3532,10 @@
       "2025-08-13",
       "2025-08-13"
     ],
-    "category": "趣味"
+    "category": "趣味",
+    "last_date": "2025-08-13",
+    "count": 1,
+    "seq_no": 89
   },
   {
     "img": "imgs/image43.jpg",
@@ -3270,7 +3562,10 @@
       "2025-08-16",
       "2025-08-16"
     ],
-    "category": "趣味"
+    "category": "趣味",
+    "last_date": "2025-08-16",
+    "count": 1,
+    "seq_no": 90
   },
   {
     "img": "imgs/image59.jpg",
@@ -3297,14 +3592,17 @@
       "2025-09-03",
       "2025-09-03"
     ],
-    "category": "对抗"
+    "category": "对抗",
+    "last_date": "2025-09-03",
+    "count": 1,
+    "seq_no": 91
   },
   {
     "img": "imgs/image174.jpg",
     "img_file": "image174.jpg",
     "total_exposure": 1285646,
     "total_clicks": 9762,
-    "avg_ctr": 0.7344,
+    "avg_ctr": 0.7345,
     "max_ctr": 0.7743,
     "min_ctr": 0.6946,
     "invest_count": 2,
@@ -3327,7 +3625,10 @@
       "2026-02-17",
       "2026-02-20"
     ],
-    "category": "合作"
+    "category": "合作",
+    "last_date": "2026-02-20",
+    "count": 2,
+    "seq_no": 92
   },
   {
     "img": "imgs/image45.png",
@@ -3358,7 +3659,10 @@
       "2025-08-22",
       "2025-08-29"
     ],
-    "category": "生存"
+    "category": "生存",
+    "last_date": "2025-08-29",
+    "count": 3,
+    "seq_no": 93
   },
   {
     "img": "imgs/image114.jpg",
@@ -3395,15 +3699,18 @@
       "2025-10-31",
       "2025-12-21"
     ],
-    "category": "对抗"
+    "category": "对抗",
+    "last_date": "2025-12-21",
+    "count": 8,
+    "seq_no": 94
   },
   {
     "img": "imgs/image48.jpg",
     "img_file": "image48.jpg",
     "total_exposure": 900026,
     "total_clicks": 6965,
-    "avg_ctr": 0.774,
-    "max_ctr": 0.78,
+    "avg_ctr": 0.8275,
+    "max_ctr": 1.14,
     "min_ctr": 0.61,
     "invest_count": 4,
     "positions": [
@@ -3430,7 +3737,10 @@
       "2025-08-22",
       "2025-09-07"
     ],
-    "category": "建造"
+    "category": "建造",
+    "last_date": "2025-09-07",
+    "count": 4,
+    "seq_no": 95
   },
   {
     "img": "imgs/image139.jpg",
@@ -3463,15 +3773,18 @@
       "2026-01-08",
       "2026-01-26"
     ],
-    "category": "探索"
+    "category": "探索",
+    "last_date": "2026-01-26",
+    "count": 4,
+    "seq_no": 96
   },
   {
     "img": "imgs/image56.jpg",
     "img_file": "image56.jpg",
     "total_exposure": 429891,
     "total_clicks": 3516,
-    "avg_ctr": 0.818,
-    "max_ctr": 0.71,
+    "avg_ctr": 0.9933,
+    "max_ctr": 1.32,
     "min_ctr": 0.71,
     "invest_count": 3,
     "positions": [
@@ -3497,15 +3810,18 @@
       "2025-08-30",
       "2025-09-07"
     ],
-    "category": "拆家"
+    "category": "拆家",
+    "last_date": "2025-09-07",
+    "count": 3,
+    "seq_no": 97
   },
   {
     "img": "imgs/image49.png",
     "img_file": "image49.png",
     "total_exposure": 1589334,
     "total_clicks": 12206,
-    "avg_ctr": 0.768,
-    "max_ctr": 0.8,
+    "avg_ctr": 0.742,
+    "max_ctr": 0.9,
     "min_ctr": 0.6,
     "invest_count": 5,
     "positions": [
@@ -3521,24 +3837,27 @@
       "RUST正版玩法授权\n9月19日登岛测试，立即报名！"
     ],
     "dates": [
+      "2025-08-09",
       "2025-08-22",
       "2025-08-24",
       "2025-08-29",
-      "2025-08-30",
-      "2025-08-09"
+      "2025-08-30"
     ],
     "date_range": [
       "2025-08-09",
       "2025-08-30"
     ],
-    "category": "对抗"
+    "category": "对抗",
+    "last_date": "2025-08-30",
+    "count": 5,
+    "seq_no": 98
   },
   {
     "img": "imgs/image116.jpg",
     "img_file": "image116.jpg",
     "total_exposure": 795432,
     "total_clicks": 5374,
-    "avg_ctr": 0.676,
+    "avg_ctr": 0.6888,
     "max_ctr": 0.9096,
     "min_ctr": 0.56,
     "invest_count": 6,
@@ -3567,15 +3886,18 @@
       "2025-11-01",
       "2026-01-04"
     ],
-    "category": "福利"
+    "category": "福利",
+    "last_date": "2026-01-04",
+    "count": 6,
+    "seq_no": 99
   },
   {
     "img": "imgs/image50.png",
     "img_file": "image50.png",
     "total_exposure": 883362,
     "total_clicks": 6652,
-    "avg_ctr": 0.753,
-    "max_ctr": 0.78,
+    "avg_ctr": 0.81,
+    "max_ctr": 1.17,
     "min_ctr": 0.57,
     "invest_count": 4,
     "positions": [
@@ -3602,7 +3924,10 @@
       "2025-08-22",
       "2025-09-07"
     ],
-    "category": "合作"
+    "category": "合作",
+    "last_date": "2025-09-07",
+    "count": 4,
+    "seq_no": 100
   },
   {
     "img": "imgs/image58.jpg",
@@ -3629,7 +3954,10 @@
       "2025-08-30",
       "2025-08-30"
     ],
-    "category": "趣味"
+    "category": "趣味",
+    "last_date": "2025-08-30",
+    "count": 1,
+    "seq_no": 101
   },
   {
     "img": "imgs/image82.png",
@@ -3656,7 +3984,10 @@
       "2025-09-20",
       "2025-09-20"
     ],
-    "category": "武器"
+    "category": "武器",
+    "last_date": "2025-09-20",
+    "count": 1,
+    "seq_no": 102
   },
   {
     "img": "imgs/image123.jpg",
@@ -3688,7 +4019,10 @@
       "2025-12-12",
       "2025-12-28"
     ],
-    "category": "建造"
+    "category": "建造",
+    "last_date": "2025-12-28",
+    "count": 4,
+    "seq_no": 103
   },
   {
     "img": "imgs/image64.jpg",
@@ -3715,7 +4049,10 @@
       "2025-09-04",
       "2025-09-04"
     ],
-    "category": "合作"
+    "category": "合作",
+    "last_date": "2025-09-04",
+    "count": 1,
+    "seq_no": 104
   },
   {
     "img": "imgs/image129.jpg",
@@ -3751,7 +4088,10 @@
       "2025-12-20",
       "2026-01-09"
     ],
-    "category": "对抗"
+    "category": "对抗",
+    "last_date": "2026-01-09",
+    "count": 6,
+    "seq_no": 105
   },
   {
     "img": "imgs/image83.png",
@@ -3778,7 +4118,10 @@
       "2025-09-20",
       "2025-09-20"
     ],
-    "category": "趣味"
+    "category": "趣味",
+    "last_date": "2025-09-20",
+    "count": 1,
+    "seq_no": 106
   },
   {
     "img": "imgs/image93.jpg",
@@ -3805,7 +4148,10 @@
       "2025-10-03",
       "2025-10-03"
     ],
-    "category": "趣味"
+    "category": "趣味",
+    "last_date": "2025-10-03",
+    "count": 1,
+    "seq_no": 107
   },
   {
     "img": "imgs/image185.jpg",
@@ -3832,7 +4178,10 @@
       "2026-03-08",
       "2026-03-08"
     ],
-    "category": "合作"
+    "category": "合作",
+    "last_date": "2026-03-08",
+    "count": 1,
+    "seq_no": 108
   },
   {
     "img": "imgs/image92.jpg",
@@ -3859,7 +4208,10 @@
       "2025-10-03",
       "2025-10-03"
     ],
-    "category": "探索"
+    "category": "探索",
+    "last_date": "2025-10-03",
+    "count": 1,
+    "seq_no": 109
   },
   {
     "img": "imgs/image62.jpg",
@@ -3886,7 +4238,10 @@
       "2025-09-04",
       "2025-09-04"
     ],
-    "category": "对抗"
+    "category": "对抗",
+    "last_date": "2025-09-04",
+    "count": 1,
+    "seq_no": 110
   },
   {
     "img": "imgs/image178.jpg",
@@ -3915,7 +4270,10 @@
       "2026-03-05",
       "2026-03-09"
     ],
-    "category": "建造"
+    "category": "建造",
+    "last_date": "2026-03-09",
+    "count": 2,
+    "seq_no": 111
   },
   {
     "img": "imgs/image184.jpg",
@@ -3942,7 +4300,10 @@
       "2026-03-08",
       "2026-03-08"
     ],
-    "category": "对抗"
+    "category": "对抗",
+    "last_date": "2026-03-08",
+    "count": 1,
+    "seq_no": 112
   },
   {
     "img": "imgs/image151.jpg",
@@ -3970,7 +4331,10 @@
       "2026-01-29",
       "2026-01-30"
     ],
-    "category": "趣味"
+    "category": "趣味",
+    "last_date": "2026-01-30",
+    "count": 2,
+    "seq_no": 113
   },
   {
     "img": "imgs/image85.jpg",
@@ -3997,7 +4361,10 @@
       "2025-09-22",
       "2025-09-22"
     ],
-    "category": "合作"
+    "category": "合作",
+    "last_date": "2025-09-22",
+    "count": 1,
+    "seq_no": 114
   },
   {
     "img": "imgs/image124.jpg",
@@ -4026,7 +4393,10 @@
       "2025-12-12",
       "2025-12-13"
     ],
-    "category": "生存"
+    "category": "生存",
+    "last_date": "2025-12-13",
+    "count": 2,
+    "seq_no": 115
   },
   {
     "img": "imgs/image104.jpg",
@@ -4053,7 +4423,10 @@
       "2025-10-12",
       "2025-10-12"
     ],
-    "category": "建造"
+    "category": "建造",
+    "last_date": "2025-10-12",
+    "count": 1,
+    "seq_no": 116
   },
   {
     "img": "imgs/image171.jpg",
@@ -4080,7 +4453,10 @@
       "2026-02-08",
       "2026-02-08"
     ],
-    "category": "对抗"
+    "category": "对抗",
+    "last_date": "2026-02-08",
+    "count": 1,
+    "seq_no": 117
   },
   {
     "img": "imgs/image126.jpg",
@@ -4114,7 +4490,10 @@
       "2025-12-18",
       "2025-12-28"
     ],
-    "category": "合作"
+    "category": "合作",
+    "last_date": "2025-12-28",
+    "count": 5,
+    "seq_no": 118
   },
   {
     "img": "imgs/image186.jpg",
@@ -4141,7 +4520,10 @@
       "2026-03-08",
       "2026-03-08"
     ],
-    "category": "合作"
+    "category": "合作",
+    "last_date": "2026-03-08",
+    "count": 1,
+    "seq_no": 119
   },
   {
     "img": "imgs/image177.jpg",
@@ -4168,7 +4550,10 @@
       "2026-03-05",
       "2026-03-05"
     ],
-    "category": "对抗"
+    "category": "对抗",
+    "last_date": "2026-03-05",
+    "count": 1,
+    "seq_no": 120
   },
   {
     "img": "imgs/image103.jpg",
@@ -4195,7 +4580,10 @@
       "2025-10-12",
       "2025-10-12"
     ],
-    "category": "生存"
+    "category": "生存",
+    "last_date": "2025-10-12",
+    "count": 1,
+    "seq_no": 121
   },
   {
     "img": "imgs/image172.jpg",
@@ -4222,7 +4610,10 @@
       "2026-02-08",
       "2026-02-08"
     ],
-    "category": "对抗"
+    "category": "对抗",
+    "last_date": "2026-02-08",
+    "count": 1,
+    "seq_no": 122
   },
   {
     "img": "imgs/image26.png",
@@ -4249,7 +4640,10 @@
       "2025-08-04",
       "2025-08-04"
     ],
-    "category": "生存"
+    "category": "生存",
+    "last_date": "2025-08-04",
+    "count": 1,
+    "seq_no": 123
   },
   {
     "img": "imgs/image23.png",
@@ -4276,15 +4670,18 @@
       "2025-08-04",
       "2025-08-04"
     ],
-    "category": "趣味"
+    "category": "趣味",
+    "last_date": "2025-08-04",
+    "count": 1,
+    "seq_no": 124
   },
   {
     "img": "imgs/image27.png",
     "img_file": "image27.png",
     "total_exposure": 370475,
     "total_clicks": 1676,
-    "avg_ctr": 0.452,
-    "max_ctr": 0.4,
+    "avg_ctr": 0.63,
+    "max_ctr": 0.86,
     "min_ctr": 0.4,
     "invest_count": 2,
     "positions": [
@@ -4306,7 +4703,10 @@
       "2025-08-04",
       "2025-08-13"
     ],
-    "category": "生存"
+    "category": "生存",
+    "last_date": "2025-08-13",
+    "count": 2,
+    "seq_no": 125
   },
   {
     "img": "imgs/image22.png",
@@ -4333,6 +4733,419 @@
       "2025-08-04",
       "2025-08-04"
     ],
-    "category": "趣味"
+    "category": "趣味",
+    "last_date": "2025-08-04",
+    "count": 1,
+    "seq_no": 126
+  },
+  {
+    "img": "imgs/rust_image4.jpg",
+    "copies": [
+      "RUST正版玩法授权\n预约赢5070Ti、千元Q币"
+    ],
+    "total_exposure": 189726,
+    "total_clicks": 2152,
+    "avg_ctr": 1.1343,
+    "invest_count": 2,
+    "positions": [
+      "商店轮播-全量"
+    ],
+    "types": [
+      "静态"
+    ],
+    "dates": [
+      "2026-04-10",
+      "2026-04-11"
+    ],
+    "date_range": [
+      "2026-04-10",
+      "2026-04-10"
+    ],
+    "category": "趣味",
+    "img_file": "rust_image4.jpg",
+    "last_date": "2026-04-11",
+    "count": 4,
+    "max_ctr": 1.7177,
+    "min_ctr": 1.1343,
+    "seq_no": 127
+  },
+  {
+    "img": "imgs/rust_image6.jpg",
+    "copies": [
+      "RUST正版玩法授权！\n没见过这么野的生存对抗游戏"
+    ],
+    "total_exposure": 91034,
+    "total_clicks": 1023,
+    "avg_ctr": 1.1238,
+    "invest_count": 1,
+    "positions": [
+      "商店轮播-全量"
+    ],
+    "types": [
+      "静态"
+    ],
+    "dates": [
+      "2026-04-10"
+    ],
+    "date_range": [
+      "2026-04-10",
+      "2026-04-10"
+    ],
+    "category": "生存",
+    "img_file": "rust_image6.jpg",
+    "last_date": "2026-04-10",
+    "count": 3,
+    "max_ctr": 1.6476,
+    "min_ctr": 1.1237,
+    "seq_no": 128
+  },
+  {
+    "img": "imgs/rust_image7.jpg",
+    "copies": [
+      "领地攻防 开启生存挑战！\nRUST正版授权生存对抗游戏",
+      "  领地攻防 开启生存挑战！\nRUST正版玩法授权"
+    ],
+    "total_exposure": 67600,
+    "total_clicks": 1103,
+    "avg_ctr": 1.6317,
+    "invest_count": 2,
+    "positions": [
+      "商店轮播-全量",
+      "商店轮播-定投201w",
+      "商店轮播-定投200w"
+    ],
+    "types": [
+      "静态"
+    ],
+    "dates": [
+      "2026-04-10",
+      "2026-04-18"
+    ],
+    "date_range": [
+      "2026-04-10",
+      "2026-04-18"
+    ],
+    "category": "拆家",
+    "img_file": "rust_image7.jpg",
+    "last_date": "2026-04-18",
+    "count": 2,
+    "max_ctr": 1.7092,
+    "min_ctr": 0.7602,
+    "seq_no": 129
+  },
+  {
+    "img": "imgs/new_img10.jpg",
+    "copies": [
+      "各式装备 随心打造\n没见过这么野的生存对抗游戏"
+    ],
+    "dates": [
+      "2026-04-11"
+    ],
+    "last_date": "2026-04-11",
+    "total_exposure": 4760,
+    "count": 1,
+    "avg_ctr": 1.03,
+    "max_ctr": 1.03,
+    "category": "建造",
+    "total_clicks": 49,
+    "positions": [
+      "商店轮播-定投200w"
+    ],
+    "types": [
+      "静态"
+    ],
+    "invest_count": 1,
+    "min_ctr": 1.03,
+    "seq_no": 131
+  },
+  {
+    "img": "imgs/new_img8.jpg",
+    "copies": [
+      "RUST正版玩法授权\n开放世界，射击生存对抗"
+    ],
+    "dates": [
+      "2026-04-11"
+    ],
+    "last_date": "2026-04-11",
+    "total_exposure": 3836,
+    "count": 1,
+    "avg_ctr": 0.73,
+    "max_ctr": 0.73,
+    "category": "探索",
+    "total_clicks": 28,
+    "positions": [
+      "商店轮播-定投200w"
+    ],
+    "types": [
+      "静态"
+    ],
+    "invest_count": 1,
+    "min_ctr": 0.73,
+    "seq_no": 135
+  },
+  {
+    "img": "imgs/new_img9.jpg",
+    "copies": [
+      "开放世界 自由驰骋\n预约赢5070Ti、千元Q币"
+    ],
+    "dates": [
+      "2026-04-11"
+    ],
+    "last_date": "2026-04-11",
+    "total_exposure": 4684,
+    "count": 1,
+    "avg_ctr": 0.83,
+    "max_ctr": 0.83,
+    "category": "趣味",
+    "total_clicks": 39,
+    "positions": [
+      "商店轮播-定投200w"
+    ],
+    "types": [
+      "静态"
+    ],
+    "invest_count": 1,
+    "min_ctr": 0.83,
+    "seq_no": 136
+  },
+  {
+    "img": "imgs/new_img11.jpg",
+    "img_file": "new_img11.jpg",
+    "copies": [
+      "登岛集结，开启生存挑战！\n预约赢Q币、5070Ti显卡"
+    ],
+    "total_exposure": 5920,
+    "total_clicks": 34,
+    "avg_ctr": 0.5743,
+    "max_ctr": 0.5743,
+    "min_ctr": 0.5743,
+    "invest_count": 1,
+    "positions": [
+      "商店轮播-定投200w"
+    ],
+    "types": [
+      "静态"
+    ],
+    "dates": [
+      "2026-04-17"
+    ],
+    "date_range": [
+      "2026-04-17",
+      "2026-04-17"
+    ],
+    "category": "探索",
+    "last_date": "2026-04-17",
+    "count": 1,
+    "seq_no": 137
+  },
+  {
+    "img": "imgs/new_img12.jpg",
+    "img_file": "new_img12.jpg",
+    "copies": [
+      "以智取胜 等待猎物上钩\n没见过这么野的生存对抗游戏"
+    ],
+    "total_exposure": 5484,
+    "total_clicks": 28,
+    "avg_ctr": 0.5106,
+    "max_ctr": 0.5106,
+    "min_ctr": 0.5106,
+    "invest_count": 1,
+    "positions": [
+      "商店轮播-定投200w"
+    ],
+    "types": [
+      "静态"
+    ],
+    "dates": [
+      "2026-04-17"
+    ],
+    "date_range": [
+      "2026-04-17",
+      "2026-04-17"
+    ],
+    "category": "对抗",
+    "last_date": "2026-04-17",
+    "count": 1,
+    "seq_no": 138
+  },
+  {
+    "img": "imgs/new_img13.jpg",
+    "img_file": "new_img13.jpg",
+    "copies": [
+      "高自由度生存对抗玩到爽\n预约赢Q币、5070Ti显卡"
+    ],
+    "total_exposure": 6475,
+    "total_clicks": 57,
+    "avg_ctr": 0.8803,
+    "max_ctr": 0.8803,
+    "min_ctr": 0.8803,
+    "invest_count": 1,
+    "positions": [
+      "商店轮播-定投200w"
+    ],
+    "types": [
+      "静态"
+    ],
+    "dates": [
+      "2026-04-18"
+    ],
+    "date_range": [
+      "2026-04-18",
+      "2026-04-18"
+    ],
+    "category": "生存",
+    "last_date": "2026-04-18",
+    "count": 1,
+    "seq_no": 139
+  },
+  {
+    "img": "imgs/new_img14.jpg",
+    "img_file": "new_img14.jpg",
+    "copies": [
+      "预约赢5070Ti、千元Q币\nRUST正版授权生存对抗游戏"
+    ],
+    "total_exposure": 22119,
+    "total_clicks": 210,
+    "avg_ctr": 0.9494,
+    "max_ctr": 0.95,
+    "min_ctr": 0.95,
+    "invest_count": 1,
+    "positions": [
+      "商店轮播-定投200w"
+    ],
+    "types": [
+      "静态"
+    ],
+    "dates": [
+      "2026-04-25"
+    ],
+    "date_range": [
+      "2026-04-25",
+      "2026-04-25"
+    ],
+    "category": "探索",
+    "last_date": "2026-04-25",
+    "count": 1,
+    "seq_no": 140
+  },
+  {
+    "img": "imgs/new_img15.jpg",
+    "img_file": "new_img15.jpg",
+    "copies": [
+      "从零开始，独狼也能翻盘！\n没见过这么野的生存对抗游戏"
+    ],
+    "total_exposure": 22127,
+    "total_clicks": 192,
+    "avg_ctr": 0.8677,
+    "max_ctr": 0.87,
+    "min_ctr": 0.87,
+    "invest_count": 1,
+    "positions": [
+      "商店轮播-定投200w"
+    ],
+    "types": [
+      "静态"
+    ],
+    "dates": [
+      "2026-04-25"
+    ],
+    "date_range": [
+      "2026-04-25",
+      "2026-04-25"
+    ],
+    "category": "生存",
+    "last_date": "2026-04-25",
+    "count": 1,
+    "seq_no": 141
+  },
+  {
+    "img": "imgs/new_img16.jpg",
+    "img_file": "new_img16.jpg",
+    "copies": [
+      "从零开荒，建造无边界\nRUST正版授权生存对抗游戏"
+    ],
+    "total_exposure": 20771,
+    "total_clicks": 167,
+    "avg_ctr": 0.804,
+    "max_ctr": 0.8,
+    "min_ctr": 0.8,
+    "invest_count": 1,
+    "positions": [
+      "商店轮播-定投200w"
+    ],
+    "types": [
+      "静态"
+    ],
+    "dates": [
+      "2026-04-25"
+    ],
+    "date_range": [
+      "2026-04-25",
+      "2026-04-25"
+    ],
+    "category": "建造",
+    "last_date": "2026-04-25",
+    "count": 1,
+    "seq_no": 142
+  },
+  {
+    "img": "imgs/new_img17.jpg",
+    "img_file": "new_img17.jpg",
+    "copies": [
+      "从零开荒，建造无边界\n高自由度生存对抗玩到爽"
+    ],
+    "total_exposure": 22388,
+    "total_clicks": 191,
+    "avg_ctr": 0.8531,
+    "max_ctr": 0.85,
+    "min_ctr": 0.85,
+    "invest_count": 1,
+    "positions": [
+      "商店轮播-定投200w"
+    ],
+    "types": [
+      "静态"
+    ],
+    "dates": [
+      "2026-04-25"
+    ],
+    "date_range": [
+      "2026-04-25",
+      "2026-04-25"
+    ],
+    "category": "建造",
+    "last_date": "2026-04-25",
+    "count": 1,
+    "seq_no": 143
+  },
+  {
+    "img": "imgs/new_img18.jpg",
+    "img_file": "new_img18.jpg",
+    "copies": [
+      "预约赢5070Ti、千元Q币\nRUST正版授权生存对抗游戏"
+    ],
+    "total_exposure": 24165,
+    "total_clicks": 220,
+    "avg_ctr": 0.9104,
+    "max_ctr": 0.91,
+    "min_ctr": 0.91,
+    "invest_count": 1,
+    "positions": [
+      "商店轮播-定投200w"
+    ],
+    "types": [
+      "静态"
+    ],
+    "dates": [
+      "2026-04-25"
+    ],
+    "date_range": [
+      "2026-04-25",
+      "2026-04-25"
+    ],
+    "category": "探索",
+    "last_date": "2026-04-25",
+    "count": 1,
+    "seq_no": 144
   }
 ]
